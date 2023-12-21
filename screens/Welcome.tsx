@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Platform, PermissionsAndroid } from "react-native";
 import Swiper from "react-native-swiper";
 import * as Animatable from "react-native-animatable";
 import { Button, Text } from "../tool-components";
@@ -24,6 +24,51 @@ export const WelcomeScreen = () => {
   // };
 
   const handleLocationAccess = async () => {
+    try {
+      let permission;
+  
+      if (Platform.OS === 'ios') {
+        // Solicitud de permisos para iOS
+        permission = await Geolocation.requestAuthorization('whenInUse');
+      } else {
+        // Solicitud de permisos para Android
+        permission = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+          {
+            title: "Permiso de Ubicación",
+            message: "Esta aplicación necesita acceso a tu ubicación.",
+            buttonNeutral: "Pregúntame Luego",
+            buttonNegative: "Cancelar",
+            buttonPositive: "OK"
+          }
+        );
+      }
+  
+      setStatus(permission);
+  
+      if (permission === 'granted' || permission === PermissionsAndroid.RESULTS.GRANTED) {
+        // Obtiene la posición actual si se concede el permiso
+        Geolocation.getCurrentPosition(
+          (position) => {
+            console.log(position); // Maneja la posición aquí
+            dispatch(setHasSeenWelcomeModalAsync(true));
+            navigation.dispatch(StackActions.replace("App"));
+          },
+          (error) => {
+            // Maneja el error aquí
+            console.error(error);
+          },
+          { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
+        );
+      } else {
+        console.error("No se ha dado permiso para acceder a la ubicación");
+      }
+    } catch (error) {
+      console.error("Error al solicitar permisos de ubicación:", error);
+    }
+  }
+
+  const handleLocationAccess0 = async () => {
     try {
       // Solicita permisos de ubicación
       const permission = await Geolocation.requestAuthorization("whenInUse");

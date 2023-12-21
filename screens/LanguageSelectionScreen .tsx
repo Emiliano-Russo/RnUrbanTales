@@ -21,13 +21,15 @@ export const LanguageSelectionScreen = () => {
   const user = useSelector((state: RootState) => state.user);
   const navigation = useNavigation<StackNavigationProp<RootStackParamList, "LanguageSelection">>();
 
-  if (user.selectedLanguage) {
-    if (!user.hasSeenWelcomeModal) {
-      navigation.navigate("Welcome");
-    } else {
-      navigation.navigate("App");
+  React.useEffect(() => {
+    if (user.selectedLanguage) {
+      if (!user.hasSeenWelcomeModal) {
+        navigation.navigate("Welcome");
+      } else {
+        navigation.navigate("App");
+      }
     }
-  }
+  }, [user.selectedLanguage, user.hasSeenWelcomeModal, navigation]);
 
   const handleLanguageChange = async (language) => {
     i18n.changeLanguage(language);
