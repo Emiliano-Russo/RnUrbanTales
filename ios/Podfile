@@ -27,6 +27,8 @@ end
 
 target 'RnUrbanTales' do
   config = use_native_modules!
+  
+  pod 'GoogleMaps'
 
   use_react_native!(
     :path => config[:reactNativePath],
