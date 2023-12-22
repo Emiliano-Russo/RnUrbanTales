@@ -1,8 +1,8 @@
-import { Modal, TouchableOpacity, View, StyleSheet } from "react-native";
-import { Text } from "../tool-components/index";
-import { useNavigation } from "@react-navigation/native";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList, TaleStackParamList } from "../App";
+import { Modal, TouchableOpacity, View, StyleSheet } from 'react-native';
+import { Text } from '../tool-components/index';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList, TaleStackParamList } from '../App';
 
 interface Props {
   visible: boolean;
@@ -10,7 +10,7 @@ interface Props {
 }
 
 export const ModalSignInNow = (props: Props) => {
-  const navigation = useNavigation<StackNavigationProp<RootStackParamList, "App">>();
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList, 'App'>>();
 
   return (
     <Modal
@@ -22,11 +22,10 @@ export const ModalSignInNow = (props: Props) => {
       <View
         style={{
           flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: "rgba(0, 0, 0, 0.5)", // Esto crea el efecto de oscurecimiento del fondo
-        }}
-      >
+          justifyContent: 'center',
+          alignItems: 'center',
+          backgroundColor: 'rgba(0, 0, 0, 0.5)', // Esto crea el efecto de oscurecimiento del fondo
+        }}>
         <View style={styles.modalContent}>
           {/* Botón de cierre */}
           <TouchableOpacity style={styles.closeButton} onPress={() => props.setVisible(false)}>
@@ -36,10 +35,9 @@ export const ModalSignInNow = (props: Props) => {
           <Text style={styles.modalMessage}>Ingresa ahora y deja que tu voz sea escuchada</Text>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("Auth");
+              navigation.navigate('Auth');
             }}
-            style={[styles.modalButton, styles.modalButtonSecondary]}
-          >
+            style={[styles.modalButton, styles.modalButtonSecondary]}>
             <Text style={styles.buttonText}>Iniciar sesión</Text>
           </TouchableOpacity>
         </View>
@@ -50,12 +48,12 @@ export const ModalSignInNow = (props: Props) => {
 
 const styles = StyleSheet.create({
   modalContent: {
-    width: "75%",
-    backgroundColor: "white",
+    width: '75%',
+    backgroundColor: 'white',
     padding: 20,
     borderRadius: 10,
-    alignItems: "center",
-    shadowColor: "#000",
+    alignItems: 'center',
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 2,
@@ -63,26 +61,26 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
-    position: "relative", // Importante para posicionar el botón de cierre absoluto
+    position: 'relative', // Importante para posicionar el botón de cierre absoluto
   },
   closeButton: {
-    position: "absolute", // Se posiciona respecto a su contenedor más cercano con posición relativa
+    position: 'absolute', // Se posiciona respecto a su contenedor más cercano con posición relativa
     top: 10,
     right: 10,
   },
   closeButtonText: {
     fontSize: 24,
-    color: "#000",
+    color: '#000',
   },
   modalTitle: {
-    textAlign: "center",
+    textAlign: 'center',
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 10,
   },
   modalMessage: {
     fontSize: 16,
-    textAlign: "center",
+    textAlign: 'center',
     marginBottom: 20,
   },
   modalButton: {
@@ -90,15 +88,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     borderRadius: 25,
     marginVertical: 5,
-    width: "100%",
-    alignItems: "center",
+    width: '100%',
+    alignItems: 'center',
   },
   modalButtonSecondary: {
-    backgroundColor: "#4B0082",
+    backgroundColor: '#4B0082',
   },
   buttonText: {
-    color: "white",
+    color: 'white',
     fontSize: 16,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
 });

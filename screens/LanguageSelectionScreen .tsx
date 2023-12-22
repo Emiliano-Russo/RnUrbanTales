@@ -1,56 +1,56 @@
-import React from "react";
-import { View, TouchableOpacity, ScrollView, StyleSheet, Image, ImageBackground } from "react-native";
-import { Text } from "../tool-components/index";
-import { useTranslation } from "react-i18next";
-import { availableLanguages } from "../i18next";
-import LinearGradient from "react-native-linear-gradient";
-import * as Animatable from "react-native-animatable";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../redux/store";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { setSelectedLanguageAsync } from "../redux/userSlice";
-import { useNavigation } from "@react-navigation/native";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from "../App";
+import React from 'react';
+import { View, TouchableOpacity, ScrollView, StyleSheet, Image, ImageBackground } from 'react-native';
+import { Text } from '../tool-components/index';
+import { useTranslation } from 'react-i18next';
+import { availableLanguages } from '../i18next';
+import LinearGradient from 'react-native-linear-gradient';
+import * as Animatable from 'react-native-animatable';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../redux/store';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { setSelectedLanguageAsync } from '../redux/userSlice';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../App';
 
-const backgroundImage = require("../assets/background1.png");
+const backgroundImage = require('../assets/background1.png');
 
 export const LanguageSelectionScreen = () => {
   const { i18n } = useTranslation();
   const dispatch: AppDispatch = useDispatch();
   const user = useSelector((state: RootState) => state.user);
-  const navigation = useNavigation<StackNavigationProp<RootStackParamList, "LanguageSelection">>();
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList, 'LanguageSelection'>>();
 
   React.useEffect(() => {
     if (user.selectedLanguage) {
       if (!user.hasSeenWelcomeModal) {
-        navigation.navigate("Welcome");
+        navigation.navigate('Welcome');
       } else {
-        navigation.navigate("App");
+        navigation.navigate('App');
       }
     }
   }, [user.selectedLanguage, user.hasSeenWelcomeModal, navigation]);
 
-  const handleLanguageChange = async (language) => {
+  const handleLanguageChange = async language => {
     i18n.changeLanguage(language);
     dispatch(setSelectedLanguageAsync(language));
-    navigation.navigate("Welcome");
+    navigation.navigate('Welcome');
   };
 
   return (
     <View style={styles.container}>
-      <LinearGradient colors={["#7D3C98", "#191970"]} style={styles.modalView}>
+      <LinearGradient colors={['#7D3C98', '#191970']} style={styles.modalView}>
         <ImageBackground
           source={backgroundImage}
           style={{
-            position: "absolute", // Posiciona la imagen de fondo absolutamente
-            width: "100%", // Asegura que la imagen de fondo llene el contenedor
-            height: "100%", // Asegura que la imagen de fondo llene el contenedor
+            position: 'absolute', // Posiciona la imagen de fondo absolutamente
+            width: '100%', // Asegura que la imagen de fondo llene el contenedor
+            height: '100%', // Asegura que la imagen de fondo llene el contenedor
             opacity: 0.2,
           }}
         />
         <Animatable.View animation="slideInDown" duration={3000}>
-          <Image style={{ width: 200, height: 200 }} source={require("../assets/official-logo-white.png")} />
+          <Image style={{ width: 200, height: 200 }} source={require('../assets/official-logo-white.png')} />
         </Animatable.View>
 
         <ScrollView contentContainerStyle={styles.scrollViewContainer}>
@@ -76,21 +76,21 @@ export const LanguageSelectionScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: 'white',
   },
   scrollViewContainer: {
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   languageText: {
     fontSize: 20,
     margin: 10,
-    fontFamily: "lightFont",
-    color: "white",
+    fontFamily: 'lightFont',
+    color: 'white',
   },
   languageButton: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   flag: {
     width: 30,
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
   },
   modalView: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "flex-start",
+    alignItems: 'center',
+    justifyContent: 'flex-start',
   },
 });

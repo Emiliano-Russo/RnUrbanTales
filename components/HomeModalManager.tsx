@@ -1,11 +1,11 @@
-import { Dispatch, SetStateAction } from "react";
-import { View } from "react-native";
-import { ModalPremium } from "../components/ModalPremium";
-import { AppDispatch } from "../redux/store";
-import { useDispatch } from "react-redux";
-import { setHasSeenPremiumOfferAsync } from "../redux/userSlice";
-import { ModalSignInNow } from "../components/ModalSignInNow";
-import { ModalMapFilters } from "../components/ModalMapFilters";
+import { Dispatch, SetStateAction } from 'react';
+import { View } from 'react-native';
+import { ModalPremium } from '../components/ModalPremium';
+import { AppDispatch } from '../redux/store';
+import { useDispatch } from 'react-redux';
+import { setHasSeenPremiumOfferAsync } from '../redux/userSlice';
+import { ModalSignInNow } from '../components/ModalSignInNow';
+import { ModalMapFilters } from '../components/ModalMapFilters';
 
 interface Props {
   hasSeenPremiumOffer: boolean;
@@ -27,7 +27,7 @@ export const HomeModalManager = (props: Props) => {
       />
       <ModalPremium
         isModalVisible={!props.hasSeenPremiumOffer}
-        setModalVisible={(value) => {
+        setModalVisible={value => {
           dispatch(setHasSeenPremiumOfferAsync(true));
         }}
       />

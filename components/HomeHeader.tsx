@@ -1,7 +1,7 @@
-import React from "react";
-import { View, StyleSheet, TouchableOpacity } from "react-native";
-import { Text } from "../tool-components/index";
-import Ionicons from "react-native-vector-icons/Ionicons";
+import React from 'react';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { Text } from '../tool-components/index';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 interface Props {
   handleOpenFilters: () => void;
@@ -23,21 +23,21 @@ export const HomeHeader = (props: Props) => {
 const styles = StyleSheet.create({
   header: {
     height: 60,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     paddingHorizontal: 15,
-    backgroundColor: "white",
+    backgroundColor: 'white',
     marginTop: 25,
   },
   headerTitle: {
     fontSize: 20,
   },
   filterButton: {
-    backgroundColor: "rgba(0, 0, 0, 0.05)", // Fondo sutil
+    backgroundColor: 'rgba(0, 0, 0, 0.05)', // Fondo sutil
     padding: 10, // Espaciado interno
     borderRadius: 50, // Bordes redondeados
-    alignItems: "center",
+    alignItems: 'center',
   },
   filterButtonText: {
     fontSize: 18, // Tamaño de letra para el botón

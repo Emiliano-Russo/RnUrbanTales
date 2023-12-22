@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
-import { Text } from "../tool-components/Text";
+import { useEffect, useState } from 'react';
+import { Text } from '../tool-components/Text';
 
 export const TypewriterText = ({ text, speed }) => {
-  const [displayedText, setDisplayedText] = useState("");
+  const [displayedText, setDisplayedText] = useState('');
 
   useEffect(() => {
     let index = 0;
     const timer = setInterval(() => {
       if (index < text.length) {
-        setDisplayedText((prev) => prev + text.charAt(index));
+        setDisplayedText(prev => prev + text.charAt(index));
         index++;
       } else {
         clearInterval(timer);
@@ -24,9 +24,8 @@ export const TypewriterText = ({ text, speed }) => {
         marginTop: 20,
         fontSize: 16,
         marginBottom: 20,
-        textAlign: "justify",
-      }}
-    >
+        textAlign: 'justify',
+      }}>
       {displayedText}
     </Text>
   );

@@ -1,4 +1,4 @@
-import { ITale, ITaleRead, ITaleReport } from "./Tale";
+import { ITale, ITaleRead, ITaleReport } from './Tale';
 
 export interface IUser {
   id: string;

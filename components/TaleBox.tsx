@@ -1,5 +1,5 @@
-import { TouchableOpacity, View, Image } from "react-native";
-import { Text } from "../tool-components/index";
+import { TouchableOpacity, View, Image } from 'react-native';
+import { Text } from '../tool-components/index';
 
 interface Props {
   title: string;
@@ -10,7 +10,7 @@ interface Props {
 export const TaleBox = (props: Props) => {
   return (
     <TouchableOpacity onPress={props.onPress}>
-      <View style={{ alignItems: "center" }}>
+      <View style={{ alignItems: 'center' }}>
         <Image
           source={{ uri: props.image }}
           style={{
@@ -20,7 +20,7 @@ export const TaleBox = (props: Props) => {
             margin: 10,
           }}
         />
-        <Text style={{ textAlign: "center", maxWidth: 100 }}>{props.title}</Text>
+        <Text style={{ textAlign: 'center', maxWidth: 100 }}>{props.title}</Text>
       </View>
     </TouchableOpacity>
   );

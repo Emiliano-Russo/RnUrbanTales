@@ -1,4 +1,4 @@
-import { IUser } from "./User";
+import { IUser } from './User';
 
 export interface ITale {
   id: string;
@@ -60,6 +60,6 @@ export interface ITaleReaction {
 }
 
 export enum ReactionType {
-  LIKE = "like",
-  DISLIKE = "dislike",
+  LIKE = 'like',
+  DISLIKE = 'dislike',
 }

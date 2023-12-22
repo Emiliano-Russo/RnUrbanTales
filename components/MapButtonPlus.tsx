@@ -1,8 +1,8 @@
 import LinearGradient from 'react-native-linear-gradient';
-import {TouchableOpacity, View, Image} from 'react-native';
-import {Text} from '../tool-components/index';
+import { TouchableOpacity, View, Image } from 'react-native';
+import { Text } from '../tool-components/index';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 const markerIcon = require('../assets/icons/mark-love2.png');
 const PlusIcon = require('../assets/iconsHTML/white/plus.png');
 
@@ -11,7 +11,7 @@ interface Props {
 }
 
 export const MapButtonPlus = (props: Props) => {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <View
@@ -27,7 +27,7 @@ export const MapButtonPlus = (props: Props) => {
           borderRadius: 50,
           elevation: 10,
           shadowColor: '#000',
-          shadowOffset: {width: 0, height: 5},
+          shadowOffset: { width: 0, height: 5 },
           shadowOpacity: 0.3,
           shadowRadius: 3,
         }}
@@ -41,15 +41,13 @@ export const MapButtonPlus = (props: Props) => {
             alignItems: 'center',
             justifyContent: 'center',
           }}
-          start={{x: 0, y: 0}} // Modificado a formato de objeto
-          end={{x: 1, y: 1}} // Modificado a formato de objeto
+          start={{ x: 0, y: 0 }} // Modificado a formato de objeto
+          end={{ x: 1, y: 1 }} // Modificado a formato de objeto
         >
-          <Image style={{height: 30, width: 30}} source={PlusIcon} />
+          <Image style={{ height: 30, width: 30 }} source={PlusIcon} />
         </LinearGradient>
       </TouchableOpacity>
-      <Text style={{marginTop: 5, color: 'white', fontWeight: 'bold'}}>
-        {t('Narrate')}
-      </Text>
+      <Text style={{ marginTop: 5, color: 'white', fontWeight: 'bold' }}>{t('Narrate')}</Text>
     </View>
   );
 };

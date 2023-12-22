@@ -1,44 +1,44 @@
-import React from "react";
-import { View, StyleSheet, ImageBackground, Dimensions, TextInput } from "react-native";
-import { Text, Button } from "../../tool-components/index";
-import { useTranslation } from "react-i18next";
-import { UserService } from "../../services/user.service";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../redux/store";
-import { addUserAndTokenAsync } from "../../redux/userSlice";
-import { useNavigation } from "@react-navigation/native";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from "../../App";
-import { API_URL } from "@env";
-const backgroundImage = require("../../assets/loginbackground2.jpg");
+import React from 'react';
+import { View, StyleSheet, ImageBackground, Dimensions, TextInput } from 'react-native';
+import { Text, Button } from '../../tool-components/index';
+import { useTranslation } from 'react-i18next';
+import { UserService } from '../../services/user.service';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../../redux/store';
+import { addUserAndTokenAsync } from '../../redux/userSlice';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../../App';
+import { API_URL } from '@env';
+const backgroundImage = require('../../assets/loginbackground2.jpg');
 
 const userService = new UserService(API_URL);
 
 export const SignUp = () => {
-  const [name, setName] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  const [confirmPass, setConfirmPass] = React.useState("");
+  const [name, setName] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const [confirmPass, setConfirmPass] = React.useState('');
   const { t } = useTranslation();
   const dispatch: AppDispatch = useDispatch();
-  const navigation = useNavigation<StackNavigationProp<RootStackParamList, "Auth">>();
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList, 'Auth'>>();
 
   const handleSignUp = () => {
     // Aquí podrías agregar la lógica para registrar al usuario
-    console.log("logeando pa", name, email, password, confirmPass);
+    console.log('logeando pa', name, email, password, confirmPass);
     if (password !== confirmPass) {
       alert("Passwords don't match.");
       return;
     }
     userService
-      .registerUser({ name: name, email: email, password: password, provider: "local" })
-      .then((res) => {
+      .registerUser({ name: name, email: email, password: password, provider: 'local' })
+      .then(res => {
         console.log(res);
         dispatch(addUserAndTokenAsync({ token: res.token, user: res.user }));
-        navigation.navigate("App");
+        navigation.navigate('App');
       })
-      .catch((err) => {
-        alert("Error creating user");
+      .catch(err => {
+        alert('Error creating user');
       });
   };
 
@@ -47,9 +47,9 @@ export const SignUp = () => {
       <ImageBackground
         source={backgroundImage}
         style={{
-          position: "absolute",
-          width: Dimensions.get("window").width,
-          height: Dimensions.get("window").height,
+          position: 'absolute',
+          width: Dimensions.get('window').width,
+          height: Dimensions.get('window').height,
           opacity: 0.8,
         }}
       />
@@ -57,7 +57,7 @@ export const SignUp = () => {
       <TextInput
         placeholderTextColor="rgba(255, 255, 255, 0.7)"
         style={styles.input}
-        placeholder={t("Name")}
+        placeholder={t('Name')}
         value={name}
         onChangeText={setName}
         keyboardType="default"
@@ -76,7 +76,7 @@ export const SignUp = () => {
       <TextInput
         placeholderTextColor="rgba(255, 255, 255, 0.7)"
         style={styles.input}
-        placeholder={t("Password")}
+        placeholder={t('Password')}
         value={password}
         onChangeText={setPassword}
         secureTextEntry
@@ -85,13 +85,13 @@ export const SignUp = () => {
       <TextInput
         placeholderTextColor="rgba(255, 255, 255, 0.7)"
         style={styles.input}
-        placeholder={t("Confirm Password")}
+        placeholder={t('Confirm Password')}
         value={confirmPass}
         onChangeText={setConfirmPass}
         secureTextEntry
         autoCapitalize="none"
       />
-      <Button title={t("Sign Up")} style={{ width: "50%" }} onPress={handleSignUp} />
+      <Button title={t('Sign Up')} style={{ width: '50%' }} onPress={handleSignUp} />
     </View>
   );
 };
@@ -99,36 +99,36 @@ export const SignUp = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "flex-start",
-    alignItems: "center",
+    justifyContent: 'flex-start',
+    alignItems: 'center',
     padding: 20,
-    backgroundColor: "white",
+    backgroundColor: 'white',
   },
   title: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 20,
-    color: "white",
+    color: 'white',
   },
   input: {
     marginBottom: 20,
-    width: "80%",
-    backgroundColor: "rgba(255, 255, 255, 0.1)",
+    width: '80%',
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
     padding: 10,
-    color: "white",
+    color: 'white',
   },
   button: {
-    width: "100%",
+    width: '100%',
     height: 50,
-    backgroundColor: "#0066ff",
-    justifyContent: "center",
-    alignItems: "center",
+    backgroundColor: '#0066ff',
+    justifyContent: 'center',
+    alignItems: 'center',
     borderRadius: 10,
     marginTop: 20,
   },
   buttonText: {
     fontSize: 18,
-    color: "#fff",
-    fontWeight: "bold",
+    color: '#fff',
+    fontWeight: 'bold',
   },
 });

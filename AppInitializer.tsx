@@ -1,9 +1,9 @@
 // AppInitializer.js
-import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import SplashScreen from "react-native-splash-screen";
-import { loadInitialStateAsync } from "./redux/userSlice";
-import { AppDispatch } from "./redux/store";
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import SplashScreen from 'react-native-splash-screen';
+import { loadInitialStateAsync } from './redux/userSlice';
+import { AppDispatch } from './redux/store';
 
 export const AppInitializer = ({ children }) => {
   const [fontsLoaded, setFontsLoaded] = useState(false);

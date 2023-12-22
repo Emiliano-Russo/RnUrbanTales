@@ -6,8 +6,8 @@ import {
   StyleSheet,
   TextStyle,
   ActivityIndicator,
-} from "react-native";
-import { Text } from "./Text";
+} from 'react-native';
+import { Text } from './Text';
 
 interface ButtonProps extends TouchableOpacityProps {
   title: string;
@@ -19,7 +19,7 @@ interface ButtonProps extends TouchableOpacityProps {
 
 export const Button: React.FC<ButtonProps> = ({ title, fontSize, style, textStyle, isLoading, ...rest }) => {
   const buttonStyle = StyleSheet.flatten([styles.button, style]);
-  const textStyles = StyleSheet.flatten([styles.text, textStyle, { fontSize: fontSize, fontFamily: "boldFont" }]);
+  const textStyles = StyleSheet.flatten([styles.text, textStyle, { fontSize: fontSize, fontFamily: 'boldFont' }]);
 
   return (
     <TouchableOpacity style={buttonStyle} disabled={isLoading} {...rest}>
@@ -33,17 +33,17 @@ const styles = StyleSheet.create({
     // Tus estilos predeterminados para el botón
     padding: 10,
     margin: 10,
-    backgroundColor: "blue",
-    alignItems: "center",
+    backgroundColor: 'blue',
+    alignItems: 'center',
     borderRadius: 5,
-    flexDirection: "row",
-    justifyContent: "center",
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
   text: {
     // Tus estilos predeterminados para el texto
-    color: "white",
-    fontWeight: "bold",
-    fontFamily: "boldFont",
-    textAlign: "center",
+    color: 'white',
+    fontWeight: 'bold',
+    fontFamily: 'boldFont',
+    textAlign: 'center',
   },
 });

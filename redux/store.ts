@@ -1,6 +1,6 @@
-import { configureStore } from "@reduxjs/toolkit";
-import userReducer from "./userSlice";
-import newTaleReducer from "./newTaleSlice";
+import { configureStore } from '@reduxjs/toolkit';
+import userReducer from './userSlice';
+import newTaleReducer from './newTaleSlice';
 
 const store = configureStore({
   reducer: {
