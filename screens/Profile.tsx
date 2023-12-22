@@ -18,6 +18,7 @@ import { TaleService } from '../services/tale.service';
 import { use } from 'i18next';
 
 const crown = require('../assets/premium_crown.png');
+const Diamond = require('../assets/iconsHTML/white/diamond.png');
 
 const userService = new UserService(API_URL);
 const taleService = new TaleService(API_URL);
