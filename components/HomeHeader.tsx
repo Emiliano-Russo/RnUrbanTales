@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { Text } from '../tool-components/index';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+const FilterIcon = require('../assets/iconsHTML/black/filter.png');
 
 interface Props {
   handleOpenFilters: () => void;
@@ -14,7 +15,7 @@ export const HomeHeader = (props: Props) => {
         Urban Tales
       </Text>
       <TouchableOpacity onPress={props.handleOpenFilters} style={styles.filterButton}>
-        <Ionicons name="filter" size={24} color="black" />
+        <Image style={{ height: 30, width: 30 }} source={FilterIcon} />
       </TouchableOpacity>
     </View>
   );
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 15,
     backgroundColor: 'white',
-    marginTop: 25,
+    // marginTop: 25,
   },
   headerTitle: {
     fontSize: 20,

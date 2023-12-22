@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { View, ScrollView, StyleSheet, Image, TouchableOpacity, Dimensions } from 'react-native';
+import { View, ScrollView, StyleSheet, Image, TouchableOpacity, Dimensions, SafeAreaView } from 'react-native';
 import { Button, Text } from '../tool-components/index';
 import { useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
@@ -119,7 +119,7 @@ export const Profile = () => {
   console.log('user subscriptions: ', user?.subscription);
 
   return (
-    <View style={{ flex: 1, backgroundColor: 'white' }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
       <View
         style={{
           alignItems: 'center',
@@ -144,6 +144,6 @@ export const Profile = () => {
           ]}
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };

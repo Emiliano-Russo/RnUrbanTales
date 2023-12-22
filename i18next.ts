@@ -114,6 +114,7 @@ const resources = {
       'Allow Location Access': 'Allow Access',
       "If you don't allow us to access the map, we won't be able to start":
         "If you don't allow us to access the map, we won't be able to start",
+      'Premium Access': 'Premium Access',
     },
   },
   es: {
@@ -229,6 +230,7 @@ const resources = {
       'Allow Location Access': 'Permitir Acceso',
       "If you don't allow us to access the map, we won't be able to start":
         'Si no nos permites acceder al mapa, no podremos comenzar',
+      'Premium Access': 'Acceso Premium',
     },
   },
   pt: {
@@ -343,6 +345,7 @@ const resources = {
       'Allow Location Access': 'Permitir Acesso',
       "If you don't allow us to access the map, we won't be able to start":
         'Se você não nos permitir acessar o mapa, não poderemos começar',
+      'Premium Access': 'Acesso Premium',
     },
   },
 };

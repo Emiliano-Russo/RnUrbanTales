@@ -147,7 +147,7 @@ export const Home = () => {
   };
 
   return (
-    <View style={{ backgroundColor: 'white', flex: 1 }}>
+    <SafeAreaView style={{ backgroundColor: 'red', flex: 1 }}>
       <HomeModalManager
         applyFilters={applyFilters}
         hasSeenPremiumOffer={hasSeenPremiumOffer}
@@ -161,7 +161,6 @@ export const Home = () => {
           width: '100%',
           height: '100%',
           position: 'relative',
-          marginTop: 10,
         }}>
         <HomeHeader handleOpenFilters={handleOpenFilters} />
         <HomeMap
@@ -177,6 +176,6 @@ export const Home = () => {
         />
       </View>
       <MapButtonPlus handleNarrarPress={handleNarrarPress} />
-    </View>
+    </SafeAreaView>
   );
 };

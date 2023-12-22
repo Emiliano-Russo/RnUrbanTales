@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { setHasSeenPremiumOfferAsync } from '../redux/userSlice';
 import { ModalSignInNow } from '../components/ModalSignInNow';
 import { ModalMapFilters } from '../components/ModalMapFilters';
+import { ModalPremium2 } from './ModalPremium2';
 
 interface Props {
   hasSeenPremiumOffer: boolean;
@@ -25,7 +26,7 @@ export const HomeModalManager = (props: Props) => {
         setModalVisible={props.setModalFilters}
         applyFilters={props.applyFilters}
       />
-      <ModalPremium
+      <ModalPremium2
         isModalVisible={!props.hasSeenPremiumOffer}
         setModalVisible={value => {
           dispatch(setHasSeenPremiumOfferAsync(true));

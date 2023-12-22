@@ -3,7 +3,7 @@ import MapView, { Marker, Callout, LatLng, Region } from 'react-native-maps';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { TaleStackParamList } from '../App';
-import { View } from 'react-native';
+import { Platform, View, Image } from 'react-native';
 import { Text } from '../tool-components/index';
 import customMapStyle from '../assets/map-aubergine.json';
 import { useTranslation } from 'react-i18next';
@@ -59,7 +59,13 @@ export const HomeMap = (props: Props) => {
               longitude: parseFloat(tale.longitude),
             }}
             title={tale.title}
-            icon={findMark(tale.mark)?.image}>
+            icon={Platform.OS === 'android' ? findMark(tale.mark)?.image : undefined}>
+            {Platform.OS === 'ios' && (
+              <Image
+                source={findMark(tale.mark)?.image}
+                style={{ width: 20, height: 20 }} // Ajusta el tamaño según sea necesario
+              />
+            )}
             <Callout
               style={{
                 alignItems: 'center',
