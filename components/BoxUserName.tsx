@@ -1,11 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import { Text } from '../tool-components/index';
 import LinearGradient from 'react-native-linear-gradient';
-import { ImageBackground, TouchableOpacity, View } from 'react-native';
+import { ImageBackground, TouchableOpacity, View, Image } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import { useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
 const backgroundImage = require('../assets/backgroundRegister.png');
+const Setting = require('../assets/iconsHTML/white/setting.png');
 
 interface Props {
   name: string;
@@ -51,14 +52,15 @@ export const BoxUserName = (props: Props) => {
       />
       {/* El primer icono ahora es invisible */}
       <View style={{ opacity: 0 }}>
-        <AntDesign name="setting" size={24} style={{ color: 'white' }} />
+        {/* <AntDesign name="setting" size={24} style={{ color: 'white' }} /> */}
+        <Image style={{ width: 20, height: 20 }} source={Setting} />
       </View>
       <Text style={{ fontSize: 20, color: 'white', marginVertical: 20 }}>
         {t('Hello')}, {props.name}!
       </Text>
       {/* El segundo icono es más grande, por ejemplo, de tamaño 30 */}
       <TouchableOpacity onPress={props.onClick}>
-        <AntDesign name="setting" size={19} style={{ color: 'white' }} />
+        <Image style={{ width: 20, height: 20 }} source={Setting} />
       </TouchableOpacity>
     </LinearGradient>
   );
