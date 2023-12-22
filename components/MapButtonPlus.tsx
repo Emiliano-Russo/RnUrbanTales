@@ -47,7 +47,16 @@ export const MapButtonPlus = (props: Props) => {
           <Image style={{ height: 30, width: 30 }} source={PlusIcon} />
         </LinearGradient>
       </TouchableOpacity>
-      <Text style={{ marginTop: 5, color: 'white', fontWeight: 'bold' }}>{t('Narrate')}</Text>
+      <Text
+        style={{
+          marginTop: 5,
+          backgroundColor: 'rgba(0,0,0,0.5)',
+          color: 'white',
+          fontWeight: 'bold',
+          paddingHorizontal: 4,
+        }}>
+        {t('Narrate')}
+      </Text>
     </View>
   );
 };

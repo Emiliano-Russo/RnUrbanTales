@@ -147,7 +147,7 @@ export const Home = () => {
   };
 
   return (
-    <SafeAreaView style={{ backgroundColor: 'red', flex: 1 }}>
+    <SafeAreaView style={{ backgroundColor: 'white', flex: 1 }}>
       <HomeModalManager
         applyFilters={applyFilters}
         hasSeenPremiumOffer={hasSeenPremiumOffer}

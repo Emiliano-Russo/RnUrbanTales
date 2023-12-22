@@ -5,7 +5,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { TaleStackParamList } from '../App';
 import { Platform, View, Image } from 'react-native';
 import { Text } from '../tool-components/index';
-import customMapStyle from '../assets/map-aubergine.json';
+import customMapStyle from '../assets/map-basic.json';
 import { useTranslation } from 'react-i18next';
 import { ITale } from '../interfaces/Tale';
 import { updateCoordinatesAsync } from '../redux/newTaleSlice';
