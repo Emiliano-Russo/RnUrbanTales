@@ -1,9 +1,11 @@
 import { StackNavigationProp } from '@react-navigation/stack';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, Image } from 'react-native';
 import { LatLng } from 'react-native-maps';
 import { TaleStackParamList } from '../App';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { Text } from '../tool-components/index';
+
+const Book = require('../assets/iconsHTML/white/book.png');
 
 interface Props {
   selectedLocation: LatLng | null;
@@ -29,7 +31,7 @@ export const MapSelection = (props: Props) => {
       }}
       style={{
         position: 'absolute',
-        top: '19%',
+        top: '10%',
         left: '10%',
         right: '10%',
         padding: 15,
@@ -39,9 +41,7 @@ export const MapSelection = (props: Props) => {
         flexDirection: 'row', // para alinear el ícono y el texto horizontalmente
         justifyContent: 'center', // para centrar ambos elementos dentro del View
       }}>
-      {props.selectedLocation && (
-        <FontAwesome name="book" size={24} color="white" style={{ marginRight: 10 }} /> // ícono de libro
-      )}
+      {props.selectedLocation && <Image style={{ width: 20, height: 20 }} source={Book} />}
       <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>
         {props.selectedLocation ? props.shareYourTale : props.selectLocationOnTheMap}
       </Text>

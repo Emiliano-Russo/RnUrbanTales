@@ -139,7 +139,7 @@ const resources = {
       WelcomeText3:
         'Únete a nosotros y comparte tu propia historia. Aquí, cada narrativa encuentra su público, cada voz se escucha.',
       'Selected location': 'Ubicación Seleccionada',
-      'Share your tale!': '¡Comparte tu Relato',
+      'Share your tale!': '¡Comparte tu Relato!',
       'Select a location on the map': 'Selecciona una ubicación en el mapa',
       Narrate: 'Narrar',
       'New Tale': 'Nuevo Relato',

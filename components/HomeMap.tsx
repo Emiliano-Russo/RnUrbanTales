@@ -68,7 +68,18 @@ export const HomeMap = (props: Props) => {
             )}
             <Callout
               style={{
-                alignItems: 'center',
+                ...Platform.select({
+                  ios: {
+                    minWidth: 120, // Un mínimo de ancho para asegurar que el contenido no se recorte
+                    maxWidth: 200, // Un máximo de ancho para mantener la caja de tamaño manejable
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    // Otros estilos específicos de iOS que puedas necesitar
+                  },
+                  android: {
+                    // Estilos específicos para Android si los hay
+                  },
+                }),
               }}
               onPress={() =>
                 navigation.navigate('TaleDisplay', {
@@ -77,8 +88,8 @@ export const HomeMap = (props: Props) => {
                   taleId: tale.id,
                 })
               }>
-              <View style={{ maxHeight: 50 }}>
-                <Text style={{ fontWeight: 'bold' }}>{tale.title}</Text>
+              <View style={{ maxHeight: 50, justifyContent: 'center', alignItems: 'center' }}>
+                <Text style={{ fontWeight: 'bold', textAlign: 'center' }}>{tale.title}</Text>
               </View>
             </Callout>
           </Marker>

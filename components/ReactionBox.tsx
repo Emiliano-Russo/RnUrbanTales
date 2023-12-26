@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import { Modal, View, TouchableOpacity, StyleSheet } from 'react-native';
+import { Modal, View, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Button, Text } from '../tool-components/index';
 import { TaleService } from '../services/tale.service';
 import { API_URL } from '@env';
 import { useTranslation } from 'react-i18next';
 import { Picker } from '@react-native-picker/picker';
+
+const Like = require('../assets/iconsHTML/black/like.png');
+const Dislike = require('../assets/iconsHTML/black/dislike.png');
+const Alert = require('../assets/iconsHTML/black/alert.png');
 
 interface Props {
   taleId: string;
@@ -78,17 +82,16 @@ export const ReactionBox = (props: Props) => {
         onPress={() => {
           setModalVisible(true);
         }}>
-        <Ionicons name="alert-circle-outline" size={20} color="gray" />
+        <Image style={{ width: 20, height: 20 }} source={Alert} />
+        <Text style={{ color: 'gray', opacity: 0 }}>{formatCount(props.dislikes)}</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={handleDislike}>
-        <Ionicons name="thumbs-down-outline" size={20} color="gray" />
-        <Text style={{ position: 'absolute', bottom: -20, width: 50, color: 'gray' }}>
-          {formatCount(props.dislikes)}
-        </Text>
+      <TouchableOpacity style={{ alignItems: 'center' }} onPress={handleDislike}>
+        <Image style={{ width: 20, height: 20 }} source={Dislike} />
+        <Text style={{ color: 'gray' }}>{formatCount(props.dislikes)}</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={{ position: 'relative' }} onPress={handleLike}>
-        <Ionicons name="thumbs-up-outline" size={20} color="gray" />
-        <Text style={{ position: 'absolute', bottom: -20, width: 50, color: 'gray' }}>{formatCount(props.likes)}</Text>
+      <TouchableOpacity style={{ alignItems: 'center' }} onPress={handleLike}>
+        <Image style={{ width: 20, height: 20 }} source={Like} />
+        <Text style={{ color: 'gray' }}>{formatCount(props.likes)}</Text>
       </TouchableOpacity>
       <Modal
         animationType="slide"
