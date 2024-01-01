@@ -58,14 +58,11 @@ export const HomeMap = (props: Props) => {
               latitude: parseFloat(tale.latitude),
               longitude: parseFloat(tale.longitude),
             }}
-            title={tale.title}
-            icon={Platform.OS === 'android' ? findMark(tale.mark)?.image : undefined}>
-            {Platform.OS === 'ios' && (
-              <Image
-                source={findMark(tale.mark)?.image}
-                style={{ width: 20, height: 20 }} // Ajusta el tamaño según sea necesario
-              />
-            )}
+            title={tale.title}>
+            <Image
+              source={findMark(tale.mark)?.image}
+              style={{ width: 20, height: 20 }} // Ajusta el tamaño según sea necesario
+            />
             <Callout
               style={{
                 ...Platform.select({
