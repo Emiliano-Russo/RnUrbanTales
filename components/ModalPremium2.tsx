@@ -3,6 +3,7 @@ import { Modal, StyleSheet, SafeAreaView, View, Image } from 'react-native';
 import { Text, Button } from '../tool-components/index';
 import LinearGradient from 'react-native-linear-gradient';
 import { premiumBenefits } from '../mocked-data/premium-benefits';
+import Purchases from 'react-native-purchases';
 
 const Diamond = require('../assets/iconsHTML/white/diamond.png');
 const Tick = require('../assets/iconsHTML/color/tick.png');
@@ -14,6 +15,26 @@ interface Props {
 
 export const ModalPremium2 = (props: Props) => {
   const { t, i18n } = useTranslation();
+
+  // Función para manejar la compra
+  const handlePurchase = async () => {
+    try {
+      console.log('getting offerings...');
+      const offerings = await Purchases.getOfferings();
+      console.log('we get it: ', offerings);
+      if (offerings.current !== null && offerings.current.availablePackages.length > 0) {
+        // Suponiendo que quieres comprar el primer paquete disponible
+        const packageToPurchase = offerings.current.availablePackages[0];
+        await Purchases.purchasePackage(packageToPurchase);
+        // Aquí puedes agregar lógica adicional post-compra
+      } else {
+        // Manejar el caso de que no hay ofertas disponibles
+      }
+    } catch (error) {
+      // Manejar errores (por ejemplo, compra cancelada, etc.)
+      console.error(error);
+    }
+  };
 
   return (
     <Modal
@@ -63,6 +84,7 @@ export const ModalPremium2 = (props: Props) => {
             <Button
               style={{ width: 200, alignSelf: 'center', backgroundColor: '#6FAEFF', marginTop: 25 }}
               title="Try for free & Subscribe"
+              onPress={handlePurchase} // Agrega esta línea
             />
           </View>
         </LinearGradient>
