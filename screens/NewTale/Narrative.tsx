@@ -18,6 +18,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateStringPropertyAsync } from '../../redux/newTaleSlice';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useTranslation } from 'react-i18next';
+import { debounce } from 'lodash';
 
 const backgroundImage = require('../../assets/paper.png');
 
@@ -36,29 +37,25 @@ export const NewTaleNarrative = () => {
     setHasUnsavedChanges(false);
   };
 
+  const debouncedSaveNarrative = useCallback(
+    debounce(() => {
+      dispatch(updateStringPropertyAsync({ property: 'narrative', value: narrative }));
+      setHasUnsavedChanges(false);
+    }, 500),
+    [narrative, dispatch],
+  );
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.title} fontType="boldFont">
         {tale.title}
       </Text>
-      {hasUnsavedChanges && (
-        <TouchableOpacity
-          style={{
-            position: 'absolute',
-            right: 20,
-            top: 20,
-            flexDirection: 'column',
-            alignItems: 'flex-end',
-          }}
-          onPress={() => saveNarrative()}>
-          <Ionicons name="save" size={30} color="#9400D3" />
-        </TouchableOpacity>
-      )}
       <TextInput
         value={narrative}
         onChangeText={text => {
           setNarrative(text);
           setHasUnsavedChanges(true);
+          debouncedSaveNarrative();
         }}
         multiline
         style={styles.textInput}
