@@ -74,6 +74,8 @@ export const HomeMap = (props: Props) => {
                     // Otros estilos específicos de iOS que puedas necesitar
                   },
                   android: {
+                    minWidth: 120,
+                    maxWidth: 200,
                     // Estilos específicos para Android si los hay
                   },
                 }),
