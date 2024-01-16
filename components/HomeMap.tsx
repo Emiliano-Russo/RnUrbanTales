@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction, useEffect } from 'react';
 import MapView, { Marker, Callout, LatLng, Region } from 'react-native-maps';
-import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { TaleStackParamList } from '../App';
 import { Platform, View, Image } from 'react-native';
@@ -8,9 +8,9 @@ import { Text } from '../tool-components/index';
 import customMapStyle from '../assets/map-basic.json';
 import { useTranslation } from 'react-i18next';
 import { ITale } from '../interfaces/Tale';
-import { updateCoordinatesAsync } from '../redux/newTaleSlice';
-import { AppDispatch } from '../redux/store';
-import { useDispatch } from 'react-redux';
+import { toggleCreatePressed, updateCoordinatesAsync } from '../redux/newTaleSlice';
+import { AppDispatch, RootState } from '../redux/store';
+import { useDispatch, useSelector } from 'react-redux';
 import { MapLoadingDots } from './MapLoadingDots';
 import { MapSelection } from './MapSelection';
 import { MapAlertZoomOut } from './MapAlertZoomOut';
@@ -26,6 +26,8 @@ interface Props {
   showAlertZoom: boolean;
   selectingLocation: boolean;
   setSelectedLocation: React.Dispatch<React.SetStateAction<LatLng | null>>;
+  handleNarrarPress: () => void;
+  setSelectingLocation: Dispatch<SetStateAction<boolean>>;
 }
 
 export const HomeMap = (props: Props) => {
@@ -34,6 +36,26 @@ export const HomeMap = (props: Props) => {
   const dispatch = useDispatch<AppDispatch>();
   const shareYourTale: string = t('Share your tale!');
   const selectLocationOnTheMap: string = t('Select a location on the map');
+  const createPressed = useSelector((state: RootState) => state.newTale.createPressed);
+
+  useEffect(() => {
+    if (createPressed) {
+      props.handleNarrarPress();
+    } else {
+      props.setSelectingLocation(false);
+    }
+  }, [createPressed]);
+
+  useFocusEffect(
+    React.useCallback(() => {
+      if (props.selectingLocation == false && props.selectedLocation == null) {
+        dispatch(toggleCreatePressed(false));
+      }
+      return () => {
+        // Aquí puedes agregar cualquier lógica de limpieza si es necesario
+      };
+    }, [dispatch]),
+  );
 
   const saveCoordinates = (latitude: string, longitude: string) => {
     dispatch(updateCoordinatesAsync({ latitude, longitude }));

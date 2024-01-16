@@ -173,9 +173,11 @@ export const Home = () => {
           showAlertZoom={showAlertZoom}
           showLoading={showLoading}
           tales={tales}
+          handleNarrarPress={handleNarrarPress}
+          setSelectingLocation={setSelectingLocation}
         />
       </View>
-      <MapButtonPlus handleNarrarPress={handleNarrarPress} />
+      {/* <MapButtonPlus handleNarrarPress={handleNarrarPress} /> */}
     </SafeAreaView>
   );
 };

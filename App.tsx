@@ -19,8 +19,8 @@ import { NewTaleTitle } from './screens/NewTale/Title';
 import { NewTaleImage } from './screens/NewTale/Image';
 import { NewTaleNarrative } from './screens/NewTale/Narrative';
 import { NewTaleCategory } from './screens/NewTale/Category';
-import { Provider } from 'react-redux';
-import store from './redux/store';
+import { Provider, useDispatch } from 'react-redux';
+import store, { AppDispatch } from './redux/store';
 import { ITaleCreate } from './interfaces/Tale';
 import { AuthWrapper } from './wrappers/AuthWrapper';
 import { AppInitializer } from './AppInitializer';
@@ -32,7 +32,9 @@ import { Support } from './screens/Support';
 import { Language } from './screens/Language';
 import { About } from './screens/About';
 import { DeleteAccount } from './screens/DeleteAccount';
+import { toggleCreatePressed } from './redux/newTaleSlice';
 
+const CreateIcon = require('./assets/iconsHTML/color/create.png');
 const HomeIcon = require('./assets/iconsHTML/black/home.png');
 const StarIcon = require('./assets/iconsHTML/black/star.png');
 const ProfileIcon = require('./assets/iconsHTML/black/profile.png');
@@ -160,6 +162,8 @@ const ProfileNavigator = () => {
 
 const AppNavigator = () => {
   const { t } = useTranslation();
+  const dispatch: AppDispatch = useDispatch();
+
   return (
     <AppTab.Navigator initialRouteName="Home">
       <AppTab.Screen
@@ -178,10 +182,36 @@ const AppNavigator = () => {
         name="Home"
         component={TaleNavigator}
         options={{
-          tabBarIcon: ({ color, size }) => <Image style={{ height: 20, width: 20 }} source={HomeIcon} />,
-          tabBarLabel: ({ color, focused }) => <Text style={{ color }}>{t('Home')}</Text>,
+          tabBarIcon: ({ focused }) => (
+            <Image
+              style={{ height: focused ? 25 : 20, width: focused ? 25 : 20 }}
+              source={focused ? CreateIcon : HomeIcon}
+            />
+          ),
+          tabBarLabel: ({ color, focused }) => <Text style={{ color }}>{focused ? t('Narrate') : t('Home')}</Text>,
           headerShown: false,
         }}
+        listeners={({ navigation, route }) => ({
+          tabPress: e => {
+            // Previene la acción por defecto
+            e.preventDefault();
+
+            // Verifica si la pestaña está actualmente enfocada
+            const isFocused = navigation.isFocused();
+
+            if (isFocused) {
+              // Si está enfocada, ejecuta tu lógica personalizada
+              //dispatch(setIsCreatingTale(true));
+              console.log('create tale');
+              dispatch(toggleCreatePressed(true));
+            } else {
+              // Si no está enfocada, navega a la pestaña
+              navigation.navigate(route.name);
+              console.log('just homeee :))');
+              dispatch(toggleCreatePressed(true));
+            }
+          },
+        })}
       />
       <AppTab.Screen
         name="Profile"

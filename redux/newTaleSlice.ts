@@ -2,7 +2,14 @@ import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ITaleCreate } from '../interfaces/Tale';
 
-const initialState: ITaleCreate = {
+interface General {
+  createPressed?: boolean;
+}
+
+// Extendiendo InitialState de ITaleCreate y General
+interface InitialState extends ITaleCreate, General {}
+
+const initialState: InitialState = {
   title: '',
   image: '',
   narrative: '',
@@ -11,6 +18,7 @@ const initialState: ITaleCreate = {
   longitude: '',
   isAnonymous: false,
   mark: '',
+  createPressed: false,
 };
 
 export const addTaleAsync = createAsyncThunk('tale/addTale', async (tale: ITaleCreate) => {
@@ -76,7 +84,11 @@ export const updateCoordinatesAsync = createAsyncThunk(
 const taleSlice = createSlice({
   name: 'tale',
   initialState,
-  reducers: {},
+  reducers: {
+    toggleCreatePressed: (state, action: PayloadAction<boolean>) => {
+      state.createPressed = action.payload;
+    },
+  },
   extraReducers: builder => {
     builder.addCase(addTaleAsync.fulfilled, (state, action: PayloadAction<ITaleCreate>) => {
       return action.payload;
@@ -92,5 +104,7 @@ const taleSlice = createSlice({
     });
   },
 });
+
+export const { toggleCreatePressed } = taleSlice.actions;
 
 export default taleSlice.reducer;
