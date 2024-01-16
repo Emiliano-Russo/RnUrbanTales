@@ -26,6 +26,17 @@ export const NewTaleTitle = () => {
     navigation.navigate('Image');
   };
 
+  const toTitleCase = text => {
+    return text
+      .split(' ')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  };
+
+  const handleTitleChange = text => {
+    setLocalTitle(toTitleCase(text));
+  };
+
   return (
     <View
       style={{
@@ -37,7 +48,7 @@ export const NewTaleTitle = () => {
       <Text fontType="boldFont" style={{ fontSize: 18, marginBottom: 20 }}>
         {t('What name do you give to your tale?')}
       </Text>
-      <TextInput value={localTitle} maxLength={30} style={{ width: '80%' }} onChangeText={setLocalTitle} />
+      <TextInput value={localTitle} maxLength={30} style={{ width: '80%' }} onChangeText={handleTitleChange} />
       <Button style={{ width: 100, marginTop: 20 }} title={t('Next')} onPress={handleNext} />
     </View>
   );

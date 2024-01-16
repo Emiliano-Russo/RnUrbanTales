@@ -8,6 +8,7 @@ import {
   ScrollView,
   ActivityIndicator,
   TouchableOpacity,
+  Platform,
 } from 'react-native';
 import { Button, Text } from '../../tool-components/index';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -61,7 +62,7 @@ export const NewTaleNarrative = () => {
         style={styles.textInput}
         placeholder="Start writing your tale here..."
       />
-      <Text style={{ textAlign: 'right' }}>{tale.narrative.length}/8000</Text>
+      <Text style={styles.characterCounter}>{tale.narrative.length}/8000</Text>
 
       <Button
         onPress={() => navigation.navigate('Anonymous')}
@@ -72,6 +73,7 @@ export const NewTaleNarrative = () => {
   );
 };
 
+// Estilos actualizados
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -82,18 +84,30 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     textAlign: 'center',
-    width: '80%',
-    alignSelf: 'center',
-    paddingBottom: 10,
+    marginBottom: 10,
+    color: 'black',
   },
   textInput: {
-    height: height / 2, // Establece una altura fija para el TextInput
-    borderWidth: 1,
-    borderColor: 'black',
-    padding: 10,
+    flex: 1,
+    padding: 15,
     borderRadius: 10,
     fontFamily: 'regularFont',
-    backgroundColor: 'rgba(255,255,255,0.6)', // Ligeramente transparente para mejor legibilidad
-    textAlignVertical: 'top', // Asegura que el texto comience desde la parte superior
+    backgroundColor: '#f8f8f8', // Un color de fondo ligeramente diferente para dar profundidad
+    textAlignVertical: 'top',
+    fontSize: 16,
+    lineHeight: 24,
+    borderWidth: 1, // Un borde sutil
+    borderColor: '#e1e1e1', // Color del borde sutil
+  },
+  characterCounter: {
+    textAlign: 'right',
+    marginRight: 15,
+    marginTop: 10,
+    color: 'gray',
+  },
+  nextButton: {
+    marginTop: 0,
+    width: 100,
+    alignSelf: 'center',
   },
 });

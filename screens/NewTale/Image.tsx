@@ -67,7 +67,7 @@ export const NewTaleImage = () => {
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
-      <Text fontType="boldFont" style={{ fontSize: 18 }}>
+      <Text fontType="boldFont" style={{ fontSize: 18, padding: 10 }}>
         {t('Select a Cover')}
       </Text>
 
