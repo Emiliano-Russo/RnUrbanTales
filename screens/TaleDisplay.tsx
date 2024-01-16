@@ -171,19 +171,6 @@ export const TaleDisplay: React.FC<TaleDisplayProps> = ({ route }) => {
   return (
     <View style={{ flex: 1, backgroundColor: 'white' }}>
       <ScrollView contentContainerStyle={styles.container}>
-        <Animatable.View
-          useNativeDriver={true}
-          animation={{
-            from: { translateX: -Dimensions.get('window').width }, // Comenzar fuera de la pantalla
-            to: { translateX: 0 }, // Terminar dentro de la pantalla
-          }}
-          duration={800}
-          delay={100}
-          style={styles.title}>
-          <Text fontType="boldFont" style={styles.title}>
-            {tale.title}
-          </Text>
-        </Animatable.View>
         <Animatable.Image
           animation={{
             from: { translateX: -Dimensions.get('window').width }, // Comenzar fuera de la pantalla
@@ -202,11 +189,25 @@ export const TaleDisplay: React.FC<TaleDisplayProps> = ({ route }) => {
             to: { translateX: 0 }, // Terminar dentro de la pantalla
           }}
           duration={800}
+          delay={100}
+          style={styles.title}>
+          <Text fontType="boldFont" style={styles.title}>
+            {tale.title}
+          </Text>
+        </Animatable.View>
+        <Animatable.View
+          useNativeDriver={true}
+          animation={{
+            from: { translateX: -Dimensions.get('window').width }, // Comenzar fuera de la pantalla
+            to: { translateX: 0 }, // Terminar dentro de la pantalla
+          }}
+          duration={800}
           delay={500}
           style={{
             flexDirection: 'row',
             justifyContent: 'space-between',
             alignItems: 'center',
+            paddingHorizontal: 20,
           }}>
           <View style={{ borderRadius: 20, backgroundColor: colorCategory?.bgColor }}>
             <Text
@@ -248,7 +249,7 @@ export const TaleDisplay: React.FC<TaleDisplayProps> = ({ route }) => {
             }}
             duration={800}
             delay={500}
-            style={{ marginTop: 40, color: 'gray', fontSize: 12 }}>
+            style={{ marginTop: 20, color: 'gray', fontSize: 12, paddingHorizontal: 20 }}>
             By {tale.isAnonymous ? 'Anonymous' : tale.user?.name}
           </Animatable.Text>
         )}
@@ -266,6 +267,7 @@ export const TaleDisplay: React.FC<TaleDisplayProps> = ({ route }) => {
             fontSize: 16,
             marginBottom: 20,
             textAlign: 'justify',
+            padding: 20,
           }}>
           {tale.narrative}
         </Animatable.Text>
@@ -309,20 +311,17 @@ export const TaleDisplay: React.FC<TaleDisplayProps> = ({ route }) => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    paddingHorizontal: 20,
     position: 'relative',
   },
   title: {
-    marginTop: 10,
     fontSize: 24,
-    marginBottom: 20,
+    marginBottom: 15,
     textAlign: 'center',
   },
   image: {
-    width: Dimensions.get('window').width - 40,
     height: 200,
-    borderRadius: 20,
-    marginBottom: 20,
+    marginBottom: 10,
+    width: '100%',
   },
   category: {},
   narrative: {
@@ -397,5 +396,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
+    width: '80%',
+    alignSelf: 'center',
+    marginBottom: 40,
   },
 });
