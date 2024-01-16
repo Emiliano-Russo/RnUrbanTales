@@ -38,6 +38,7 @@ export class TaleService {
     category: string,
     taleRead?: { hideRead: boolean; userId: string },
   ): Promise<PaginatedResponse<ITale[]>> {
+    console.log('find all in area with: ' + this.baseUrl);
     let query = `/tale/area?latitude=${latitude}&longitude=${longitude}&diameterKm=${diameterKm}&page=${page}&limit=${limit}`;
     if (category != 'Any') {
       query = query + `&category=${category}`;

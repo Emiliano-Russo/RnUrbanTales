@@ -13,7 +13,7 @@ import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { ProfileStackParamList, TaleStackParamList } from '../App';
 import { UserService } from '../services/user.service';
-import { API_URL } from '@env';
+import { API_URL, PREMIUM_ACTIVE } from '@env';
 import { TaleService } from '../services/tale.service';
 import { use } from 'i18next';
 
@@ -119,6 +119,17 @@ export const Profile = () => {
 
   console.log('user subscriptions: ', user?.subscription);
 
+  const Premium = () => {
+    if (user && user.subscription && user.subscription && user.subscription.status == 'active')
+      return (
+        <>
+          <Image source={crown} style={{ width: 60, height: 60, marginTop: 30 }} />
+          <Text style={{ color: 'rgb(230, 184, 0)', marginBottom: 10 }}>Premium</Text>
+        </>
+      );
+    else return <BoxLetsGoPremium />;
+  };
+
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
       <View
@@ -128,14 +139,7 @@ export const Profile = () => {
           justifyContent: 'flex-start',
           flex: 1,
         }}>
-        {user && user.subscription && user.subscription && user.subscription.status == 'active' ? (
-          <>
-            <Image source={crown} style={{ width: 60, height: 60, marginTop: 30 }} />
-            <Text style={{ color: 'rgb(230, 184, 0)', marginBottom: 10 }}>Premium</Text>
-          </>
-        ) : (
-          <BoxLetsGoPremium />
-        )}
+        {PREMIUM_ACTIVE == '1' && <Premium />}
         {user && user != null ? <BoxUserName name={user.name} onClick={openSettings} /> : <BoxSignInNowProfile />}
         <Tabs
           screens={[

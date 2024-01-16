@@ -11,6 +11,7 @@ import { AppDispatch, RootState } from '../../redux/store';
 import { updateStringPropertyAsync } from '../../redux/newTaleSlice';
 import { markStandar, premiumMarks } from '../../marks';
 import { ModalPremium } from '../../components/ModalPremium';
+import { PREMIUM_ACTIVE } from '@env';
 
 export const NewTaleMark = () => {
   const { t, i18n } = useTranslation();
@@ -79,12 +80,19 @@ export const NewTaleMark = () => {
 
   return (
     <View style={{ flex: 1, backgroundColor: 'white', alignItems: 'center' }}>
-      <Tabs
-        screens={[
-          { title: t('Standar'), component: StandarMarks },
-          { title: 'Premium', component: PremiumMarks },
-        ]}
-      />
+      {PREMIUM_ACTIVE == '1' ? (
+        <Tabs
+          screens={[
+            { title: t('Standar'), component: StandarMarks },
+            { title: 'Premium', component: PremiumMarks },
+          ]}
+        />
+      ) : (
+        <View style={{ height: '50%', marginTop: 30, width: '70%' }}>
+          <StandarMarks />
+        </View>
+      )}
+
       <Button
         title={t('Next')}
         onPress={() => navigation.navigate('Category')}

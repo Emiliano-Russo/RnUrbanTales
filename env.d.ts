@@ -5,4 +5,5 @@ declare module '@env' {
   export const WEB_SECRET_CLIENT_ID: string;
   export const MAX_ZOOM_LEVEL_FOR_STORIES: number;
   export const REVENUECAT_APIKEY_ANDROID: string;
+  export const PREMIUM_ACTIVE: string;
 }

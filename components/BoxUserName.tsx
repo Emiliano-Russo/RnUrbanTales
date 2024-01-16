@@ -4,6 +4,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import { ImageBackground, TouchableOpacity, View, Image } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import { useSelector } from 'react-redux';
+import { PREMIUM_ACTIVE } from '@env';
 import { RootState } from '../redux/store';
 const backgroundImage = require('../assets/backgroundRegister.png');
 const Setting = require('../assets/iconsHTML/white/setting.png');
@@ -40,6 +41,7 @@ export const BoxUserName = (props: Props) => {
         shadowRadius: 6,
         // Android Shadow
         elevation: 10,
+        marginTop: PREMIUM_ACTIVE == '1' ? 0 : 20,
       }}>
       <ImageBackground
         source={backgroundImage}
