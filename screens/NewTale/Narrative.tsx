@@ -67,7 +67,7 @@ export const NewTaleNarrative = () => {
       <Button
         onPress={() => navigation.navigate('Anonymous')}
         title={t('Next')}
-        style={{ marginTop: 50, width: 100, alignSelf: 'center' }}
+        style={{ width: 100, alignSelf: 'center' }}
       />
     </ScrollView>
   );
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     color: 'black',
   },
   textInput: {
-    flex: 1,
+    flex: 0.8,
     padding: 15,
     borderRadius: 10,
     fontFamily: 'regularFont',
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     color: 'gray',
   },
   nextButton: {
-    marginTop: 0,
+    marginTop: 10,
     width: 100,
     alignSelf: 'center',
   },
