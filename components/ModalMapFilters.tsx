@@ -1,8 +1,8 @@
 import { Picker } from '@react-native-picker/picker';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { View, Modal, TouchableOpacity, StyleSheet, Switch, Text, Platform } from 'react-native';
-import { Button } from '../tool-components/index';
+import { View, Modal, TouchableOpacity, StyleSheet, Switch, Platform } from 'react-native';
+import { Button, Text } from '../tool-components/index';
 import { categories } from '../interfaces/Categories';
 import { RootState } from '../redux/store';
 import { useSelector } from 'react-redux';
@@ -109,6 +109,7 @@ const styles = StyleSheet.create({
   modalText: {
     fontSize: 18,
     marginBottom: 20,
+    color: 'black',
     // Estilos para el texto dentro del modal
   },
   switchContainer: {

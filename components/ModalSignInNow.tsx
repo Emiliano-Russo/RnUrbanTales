@@ -3,6 +3,7 @@ import { Text } from '../tool-components/index';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList, TaleStackParamList } from '../App';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   visible: boolean;
@@ -11,6 +12,7 @@ interface Props {
 
 export const ModalSignInNow = (props: Props) => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList, 'App'>>();
+  const { t } = useTranslation();
 
   return (
     <Modal
@@ -31,8 +33,8 @@ export const ModalSignInNow = (props: Props) => {
           <TouchableOpacity style={styles.closeButton} onPress={() => props.setVisible(false)}>
             <Text style={styles.closeButtonText}>×</Text>
           </TouchableOpacity>
-          <Text style={styles.modalTitle}>¿Tienes una historia para contar?</Text>
-          <Text style={styles.modalMessage}>Ingresa ahora y deja que tu voz sea escuchada</Text>
+          <Text style={styles.modalTitle}>{t('Do you have a story to tell?')}</Text>
+          <Text style={styles.modalMessage}>{t('Login now and let your voice be heard')}</Text>
           <TouchableOpacity
             onPress={() => {
               navigation.navigate('Auth');
@@ -77,6 +79,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 10,
+    marginTop: 20,
   },
   modalMessage: {
     fontSize: 16,
@@ -86,13 +89,13 @@ const styles = StyleSheet.create({
   modalButton: {
     paddingVertical: 10,
     paddingHorizontal: 20,
-    borderRadius: 25,
+    borderRadius: 10,
     marginVertical: 5,
     width: '100%',
     alignItems: 'center',
   },
   modalButtonSecondary: {
-    backgroundColor: '#4B0082',
+    backgroundColor: '#5D3FD3',
   },
   buttonText: {
     color: 'white',

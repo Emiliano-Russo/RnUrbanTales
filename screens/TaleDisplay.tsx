@@ -249,7 +249,13 @@ export const TaleDisplay: React.FC<TaleDisplayProps> = ({ route }) => {
             }}
             duration={800}
             delay={500}
-            style={{ marginTop: 20, color: 'gray', fontSize: 12, paddingHorizontal: 20 }}>
+            style={{
+              marginTop: 20,
+              color: 'gray',
+              fontSize: 12,
+              paddingHorizontal: 20,
+              fontFamily: 'Merriweather-Regular',
+            }}>
             By {tale.isAnonymous ? 'Anonymous' : tale.user?.name}
           </Animatable.Text>
         )}
@@ -268,6 +274,7 @@ export const TaleDisplay: React.FC<TaleDisplayProps> = ({ route }) => {
             marginBottom: 20,
             textAlign: 'justify',
             padding: 20,
+            fontFamily: 'Merriweather-Regular',
           }}>
           {tale.narrative}
         </Animatable.Text>
@@ -299,7 +306,7 @@ export const TaleDisplay: React.FC<TaleDisplayProps> = ({ route }) => {
           <View style={styles.modalView}>
             <Text style={styles.modalText}>{alertMessage}</Text>
             <TouchableOpacity style={styles.button} onPress={handleGoHome}>
-              <Text style={styles.buttonText}>Volver al Inicio</Text>
+              <Text style={styles.buttonText}>{t('Back to Home')}</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -317,6 +324,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     marginBottom: 15,
     textAlign: 'center',
+    color: 'black',
   },
   image: {
     height: 200,

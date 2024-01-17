@@ -19,11 +19,17 @@ interface ButtonProps extends TouchableOpacityProps {
 
 export const Button: React.FC<ButtonProps> = ({ title, fontSize, style, textStyle, isLoading, ...rest }) => {
   const buttonStyle = StyleSheet.flatten([styles.button, style]);
-  const textStyles = StyleSheet.flatten([styles.text, textStyle, { fontSize: fontSize, fontFamily: 'boldFont' }]);
+  const textStyles = StyleSheet.flatten([styles.text, textStyle, { fontSize: fontSize }]);
 
   return (
     <TouchableOpacity style={buttonStyle} disabled={isLoading} {...rest}>
-      {isLoading ? <ActivityIndicator size="small" color="#FFF" /> : <Text style={textStyles}>{title}</Text>}
+      {isLoading ? (
+        <ActivityIndicator size="small" color="#FFF" />
+      ) : (
+        <Text fontType="regularFont" style={textStyles}>
+          {title}
+        </Text>
+      )}
     </TouchableOpacity>
   );
 };
@@ -42,8 +48,6 @@ const styles = StyleSheet.create({
   text: {
     // Tus estilos predeterminados para el texto
     color: 'white',
-    fontWeight: 'bold',
-    fontFamily: 'boldFont',
     textAlign: 'center',
   },
 });

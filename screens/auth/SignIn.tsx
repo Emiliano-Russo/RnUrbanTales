@@ -6,13 +6,12 @@ import {
   ImageBackground,
   TextInput,
   StyleSheet,
-  Text,
   KeyboardAvoidingView,
   Platform,
   ScrollView,
   Dimensions,
 } from 'react-native';
-import { Button } from '../../tool-components';
+import { Button, Text } from '../../tool-components';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { AuthStackParamList, RootStackParamList } from '../../App';

@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontSize: 20,
+    color: 'black',
   },
   filterButton: {
     backgroundColor: 'rgba(0, 0, 0, 0.05)', // Fondo sutil

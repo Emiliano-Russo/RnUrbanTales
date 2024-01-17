@@ -170,15 +170,16 @@ const styles = StyleSheet.create({
   text: {
     color: '#fff',
     fontSize: 30,
-    fontWeight: 'bold',
     marginBottom: 15,
     textAlign: 'center',
+    fontFamily: 'Merriweather-Bold',
   },
   description: {
     color: '#fff',
     fontSize: 18,
     textAlign: 'center',
     marginBottom: 15,
+    fontFamily: 'Merriweather-Regular',
   },
   container: {
     flex: 1,

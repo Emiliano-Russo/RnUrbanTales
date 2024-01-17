@@ -63,7 +63,9 @@ export const LanguageSelectionScreen = () => {
             >
               <TouchableOpacity style={styles.languageButton} onPress={() => handleLanguageChange(language.code)}>
                 <Image style={styles.flag} source={{ uri: language.flagUri }} />
-                <Text style={styles.languageText}>{language.name}</Text>
+                <Text fontType="regularFont" style={styles.languageText}>
+                  {language.name}
+                </Text>
               </TouchableOpacity>
             </Animatable.View>
           ))}
@@ -85,7 +87,6 @@ const styles = StyleSheet.create({
   languageText: {
     fontSize: 20,
     margin: 10,
-    fontFamily: 'lightFont',
     color: 'white',
   },
   languageButton: {

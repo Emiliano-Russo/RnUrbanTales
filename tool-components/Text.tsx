@@ -10,8 +10,20 @@ type fontType = 'regularFont' | 'lightFont' | 'boldFont';
 export const Text: React.FC<TextProps> = props => {
   const { fontType, style, ...rest } = props;
 
+  let fontFamily;
+  switch (fontType) {
+    case 'lightFont':
+      fontFamily = 'Merriweather-Light';
+      break;
+    case 'boldFont':
+      fontFamily = 'Merriweather-Bold';
+      break;
+    default:
+      fontFamily = 'Merriweather-Regular';
+  }
+
   const fontStyles = {
-    fontFamily: fontType || 'regularFont',
+    fontFamily,
   };
 
   return <RNText style={[fontStyles, style]} {...rest} />;

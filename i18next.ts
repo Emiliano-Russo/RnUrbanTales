@@ -120,6 +120,9 @@ const resources = {
       'Welcome!': 'Welcome!',
       'Forgot password?': 'Forgot password?',
       'Enter your email to receive a password reset link': 'Enter your email to receive a password reset link',
+      'Do you have a story to tell?': 'Do you have a story to tell?',
+      'Login now and let your voice be heard': 'Login now and let your voice be heard',
+      'Back to Home': 'Back to Home',
     },
   },
   es: {
@@ -242,6 +245,9 @@ const resources = {
       'Forgot password?': '¿Olvidó su contraseña?',
       'Enter your email to receive a password reset link':
         'Introduzca su correo electrónico para recibir un enlace de restablecimiento de contraseña',
+      'Do you have a story to tell?': '¿Tienes una historia que contar?',
+      'Login now and let your voice be heard': 'Ingrese ahora y haga oír su voz',
+      'Back to Home': 'Volver al Inicio',
     },
   },
   pt: {
@@ -363,6 +369,9 @@ const resources = {
       'Forgot Password?': 'Esqueceu a senha?',
       'Enter your email to receive a password reset link':
         'Digite seu e-mail para receber um link de redefinição de senha',
+      'Do you have a story to tell?': 'Você tem uma história para contar?',
+      'Login now and let your voice be heard': 'Faça login agora e deixe sua voz ser ouvida',
+      'Back to Home': 'Voltar ao início',
     },
   },
 };
