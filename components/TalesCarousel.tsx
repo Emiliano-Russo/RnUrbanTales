@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Image, ScrollView, ImageBackground, TouchableOpacity, FlatList } from 'react-native';
 import { Text } from '../tool-components/index';
 import { TaleBox } from './TaleBox';
+import * as Animatable from 'react-native-animatable';
 import { useTranslation } from 'react-i18next';
 const backgroundImage = require('../assets/backgroundRegister.png');
 
@@ -42,14 +43,16 @@ export const TalesCarousel = (props: Props) => {
         numColumns={2}
         data={props.tales}
         contentContainerStyle={{ alignItems: 'center', paddingHorizontal: 20 }}
-        renderItem={({ item }) => (
-          <TaleBox
-            image={item.image}
-            title={item.title}
-            onPress={() => {
-              props.onPress(item.id);
-            }}
-          />
+        renderItem={({ item, index }) => (
+          <Animatable.View animation="fadeInLeft" delay={index * 100}>
+            <TaleBox
+              image={item.image}
+              title={item.title}
+              onPress={() => {
+                props.onPress(item.id);
+              }}
+            />
+          </Animatable.View>
         )}
         keyExtractor={(item, index) => index.toString()}
       />

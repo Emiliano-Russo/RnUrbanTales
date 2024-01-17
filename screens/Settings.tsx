@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../redux/store';
 import { removeUserAndTokenAsync } from '../redux/userSlice';
 import { useTranslation } from 'react-i18next';
+import * as Animatable from 'react-native-animatable';
 
 const Settings = () => {
   const navigation = useNavigation<StackNavigationProp<ProfileStackParamList, 'Settings'>>();
@@ -69,10 +70,12 @@ const Settings = () => {
   ];
   return (
     <View style={styles.container}>
-      {options.map(option => (
-        <TouchableOpacity key={option.name} style={styles.opt} onPress={option.action}>
-          <Text style={{ color: option.color ? option.color : 'black' }}>{option.name}</Text>
-        </TouchableOpacity>
+      {options.map((option, index) => (
+        <Animatable.View animation="fadeInLeft" delay={index * 100}>
+          <TouchableOpacity key={option.name} style={styles.opt} onPress={option.action}>
+            <Text style={{ color: option.color ? option.color : 'black' }}>{option.name}</Text>
+          </TouchableOpacity>
+        </Animatable.View>
       ))}
     </View>
   );
