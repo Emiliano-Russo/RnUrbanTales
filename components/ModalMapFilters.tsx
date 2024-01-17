@@ -117,9 +117,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginVertical: 10, // Espaciado vertical
     width: '80%',
+    paddingHorizontal: 0,
   },
   switchText: {
     fontSize: 16,
+    paddingLeft: 15,
     // Estilos adicionales para el texto del switch
   },
 });

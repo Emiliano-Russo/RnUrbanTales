@@ -80,6 +80,6 @@ const styles = StyleSheet.create({
   },
   saveButton: {
     backgroundColor: '#9fEE90',
-    width: '20%',
+    width: 80,
   },
 });

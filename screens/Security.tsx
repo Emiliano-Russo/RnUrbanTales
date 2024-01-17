@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     padding: 20,
+    backgroundColor: 'white',
   },
   button: {
     backgroundColor: '#4CAF50', // Un color de botón más vivo
