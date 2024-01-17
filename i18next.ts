@@ -115,6 +115,7 @@ const resources = {
       "If you don't allow us to access the map, we won't be able to start":
         "If you don't allow us to access the map, we won't be able to start",
       'Premium Access': 'Premium Access',
+      Security: 'Security',
     },
   },
   es: {
@@ -231,6 +232,7 @@ const resources = {
       "If you don't allow us to access the map, we won't be able to start":
         'Si no nos permites acceder al mapa, no podremos comenzar',
       'Premium Access': 'Acceso Premium',
+      Security: 'Seguridad',
     },
   },
   pt: {
@@ -346,6 +348,7 @@ const resources = {
       "If you don't allow us to access the map, we won't be able to start":
         'Se você não nos permitir acessar o mapa, não poderemos começar',
       'Premium Access': 'Acesso Premium',
+      Security: 'Segurança',
     },
   },
 };

@@ -24,6 +24,13 @@ const Settings = () => {
       },
     },
     {
+      name: t('Security'),
+      action: () => {
+        console.log('Security');
+        navigation.navigate('Security');
+      },
+    },
+    {
       name: t('Language'),
       action: () => {
         console.log('Language');

@@ -29,7 +29,8 @@ export const ModalMapFilters = ({ setModalVisible, isModalVisible, applyFilters 
       <TouchableOpacity style={styles.modalOverlay} activeOpacity={1}>
         <View style={styles.modalContent}>
           <Button
-            style={{ position: 'absolute', right: 0, backgroundColor: 'red' }}
+            style={{ position: 'absolute', right: 0, backgroundColor: 'white', borderRadius: 20 }}
+            textStyle={{ color: 'red' }}
             title="X"
             onPress={() => setModalVisible(false)}
           />

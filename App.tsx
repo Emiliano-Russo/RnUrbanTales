@@ -33,6 +33,7 @@ import { Language } from './screens/Language';
 import { About } from './screens/About';
 import { DeleteAccount } from './screens/DeleteAccount';
 import { toggleCreatePressed } from './redux/newTaleSlice';
+import { Security } from './screens/Security';
 
 const CreateIcon = require('./assets/iconsHTML/color/create.png');
 const HomeIcon = require('./assets/iconsHTML/black/home.png');
@@ -77,6 +78,7 @@ export type ProfileStackParamList = {
   Profile: undefined;
   Settings: undefined;
   EditUser: undefined;
+  Security: undefined;
   Support: undefined;
   Language: undefined;
   About: undefined;
@@ -142,6 +144,7 @@ const ProfileNavigator = () => {
   const { t } = useTranslation();
   const settings = t('Settings');
   const editUser = t('Edit User');
+  const security = t('Security');
   const support = t('Support');
   const language = t('Language');
   const about = t('About');
@@ -152,6 +155,7 @@ const ProfileNavigator = () => {
       <ProfileStack.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
       <ProfileStack.Screen name={'Settings'} component={Settings} options={{ title: settings }} />
       <ProfileStack.Screen name={'EditUser'} component={EditUser} options={{ title: editUser }} />
+      <ProfileStack.Screen name={'Security'} component={Security} options={{ title: security }} />
       <ProfileStack.Screen name={'Support'} component={Support} options={{ title: support }} />
       <ProfileStack.Screen name={'Language'} component={Language} options={{ title: language }} />
       <ProfileStack.Screen name={'About'} component={About} options={{ title: about }} />

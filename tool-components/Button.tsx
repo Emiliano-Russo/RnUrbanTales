@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     // Tus estilos predeterminados para el botón
     padding: 10,
     margin: 10,
-    backgroundColor: 'blue',
+    backgroundColor: '#4578bb',
     alignItems: 'center',
     borderRadius: 5,
     flexDirection: 'row',
