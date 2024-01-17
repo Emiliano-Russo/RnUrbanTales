@@ -50,7 +50,6 @@ const styles = StyleSheet.create({
   languageText: {
     fontSize: 20,
     margin: 10,
-    fontFamily: 'lightFont',
     color: 'black',
   },
   languageButton: {

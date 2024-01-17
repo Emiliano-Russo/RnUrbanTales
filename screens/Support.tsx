@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, ScrollView, StyleSheet } from 'react-native';
+import { View, TouchableOpacity, ScrollView, StyleSheet } from 'react-native';
+import { Text } from '../tool-components/index';
 
 const questionsAnswers = [
   {
@@ -78,9 +79,7 @@ const styles = StyleSheet.create({
     padding: 15,
     marginBottom: 10,
   },
-  questionText: {
-    fontWeight: 'bold',
-  },
+  questionText: {},
   answerText: {
     backgroundColor: '#e0e0e0',
     padding: 15,

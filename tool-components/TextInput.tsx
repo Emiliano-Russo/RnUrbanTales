@@ -11,7 +11,7 @@ export const TextInput: React.FC<Props> = props => {
       padding: 10,
       fontSize: 16,
       color: '#000',
-      fontFamily: 'regularFont',
+      fontFamily: 'Merriweather-Regular',
     },
     props.style,
   ];
