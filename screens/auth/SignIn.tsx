@@ -24,7 +24,7 @@ import { addUserAndTokenAsync } from '../../redux/userSlice';
 import { AppDispatch } from '../../redux/store';
 import { NoAuthWrapper } from '../../wrappers/NoAuthWrapper';
 import { API_URL } from '@env';
-const backgroundImage = require('../../assets/loginbackground2.jpg');
+const backgroundImage = require('../../assets/loginbackground3.png');
 
 const userService = new UserService(API_URL);
 
@@ -80,7 +80,7 @@ export function SignIn() {
               opacity: 0.8,
             }}
           />
-          <Animatable.View animation="slideInDown" duration={3000}>
+          <Animatable.View animation="fadeIn" duration={2000}>
             <Image style={{ width: 200, height: 200 }} source={require('../../assets/official-logo-white.png')} />
           </Animatable.View>
           <Animatable.View animation="fadeIn" duration={3000} style={{ alignItems: 'center', flex: 1, width: '100%' }}>
@@ -104,7 +104,7 @@ export function SignIn() {
               isLoading={loading}
               title={t('Sign In')}
               onPress={handleLocalSignIn}
-              style={{ width: '50%', backgroundColor: '#8A2BE2' }}
+              style={{ width: '50%', backgroundColor: '#5D3FD3' }}
             />
             <Button
               isLoading={loading}
@@ -113,16 +113,16 @@ export function SignIn() {
                 /* Navega a la pantalla de registro */
                 navigation.navigate('SignUp');
               }}
-              style={{ width: '50%', backgroundColor: '#19288f' }}
+              style={{ width: '50%' }}
             />
 
-            <DividerWithText />
+            {/* <DividerWithText />
             <Button
               isLoading={loading}
               title="Sign In with Google"
               textStyle={{ color: 'black' }}
               style={{ width: '50%', backgroundColor: 'white', marginTop: 30, borderWidth: 1 }}
-            />
+            /> */}
           </Animatable.View>
         </ScrollView>
       </KeyboardAvoidingView>

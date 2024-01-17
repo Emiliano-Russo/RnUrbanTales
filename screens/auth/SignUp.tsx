@@ -10,7 +10,7 @@ import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../App';
 import { API_URL } from '@env';
-const backgroundImage = require('../../assets/loginbackground2.jpg');
+const backgroundImage = require('../../assets/loginbackground3.png');
 
 const userService = new UserService(API_URL);
 
@@ -53,7 +53,7 @@ export const SignUp = () => {
           opacity: 0.8,
         }}
       />
-      <Text style={styles.title}>Create Account</Text>
+      <Text style={styles.title}>{t('Create Account')}</Text>
       <TextInput
         placeholderTextColor="rgba(255, 255, 255, 0.7)"
         style={styles.input}
