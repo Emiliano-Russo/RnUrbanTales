@@ -34,6 +34,7 @@ import { About } from './screens/About';
 import { DeleteAccount } from './screens/DeleteAccount';
 import { toggleCreatePressed } from './redux/newTaleSlice';
 import { Security } from './screens/Security';
+import { ForgotPassword } from './screens/auth/ForgotPassword';
 
 const CreateIcon = require('./assets/iconsHTML/color/create.png');
 const HomeIcon = require('./assets/iconsHTML/black/home.png');
@@ -72,6 +73,7 @@ export type NewTaleStackParamList = {
 export type AuthStackParamList = {
   SignIn: undefined;
   SignUp: undefined;
+  ForgotPassword: undefined;
 };
 
 export type ProfileStackParamList = {
@@ -92,12 +94,28 @@ const TaleStack = createStackNavigator<TaleStackParamList>();
 const NewTaleStack = createStackNavigator<NewTaleStackParamList>();
 const ProfileStack = createStackNavigator<ProfileStackParamList>();
 
-const AuthNavigator = () => (
-  <AuthStack.Navigator initialRouteName="SignIn">
-    <AuthStack.Screen name="SignIn" component={SignIn} />
-    <AuthStack.Screen name="SignUp" component={SignUp} />
-  </AuthStack.Navigator>
-);
+const AuthNavigator = () => {
+  const { t } = useTranslation();
+  return (
+    <AuthStack.Navigator initialRouteName="SignIn">
+      <AuthStack.Screen
+        name="SignIn"
+        component={SignIn}
+        options={{ title: t('Sign In'), headerTitleAlign: 'center' }}
+      />
+      <AuthStack.Screen
+        name="SignUp"
+        component={SignUp}
+        options={{ title: t('Sign Up'), headerTitleAlign: 'center' }}
+      />
+      <AuthStack.Screen
+        name="ForgotPassword"
+        component={ForgotPassword}
+        options={{ title: t('Forgot password?'), headerTitleAlign: 'center' }}
+      />
+    </AuthStack.Navigator>
+  );
+};
 
 const NewTaleNavigator = () => {
   const { t } = useTranslation();

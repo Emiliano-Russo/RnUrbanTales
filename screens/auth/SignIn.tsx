@@ -24,7 +24,8 @@ import { addUserAndTokenAsync } from '../../redux/userSlice';
 import { AppDispatch } from '../../redux/store';
 import { NoAuthWrapper } from '../../wrappers/NoAuthWrapper';
 import { API_URL } from '@env';
-const backgroundImage = require('../../assets/loginbackground3.png');
+//const backgroundImage = require('../../assets/loginbackground3.png');
+const backgroundImage = require('../../assets/backgroundRegister.png');
 
 const userService = new UserService(API_URL);
 
@@ -70,29 +71,42 @@ export function SignIn() {
   return (
     <NoAuthWrapper>
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{ flex: 1 }}>
-        <ScrollView contentContainerStyle={{ alignItems: 'center', backgroundColor: 'white', flex: 1 }}>
+        <ScrollView contentContainerStyle={{ alignItems: 'center', backgroundColor: 'rgb(90,57,183)', flex: 1 }}>
           <ImageBackground
             source={backgroundImage}
             style={{
-              position: 'absolute',
-              width: Dimensions.get('window').width,
-              height: Dimensions.get('window').height,
-              opacity: 0.8,
+              position: 'absolute', // Posiciona la imagen de fondo absolutamente
+              width: '100%', // Asegura que la imagen de fondo llene el contenedor
+              height: '50%', // Asegura que la imagen de fondo llene el contenedor
+              opacity: 0.2,
             }}
           />
-          <Animatable.View animation="fadeIn" duration={2000}>
+          <Animatable.View animation="tada" duration={1000}>
             <Image style={{ width: 200, height: 200 }} source={require('../../assets/official-logo-white.png')} />
           </Animatable.View>
-          <Animatable.View animation="fadeIn" duration={3000} style={{ alignItems: 'center', flex: 1, width: '100%' }}>
+          <Animatable.View
+            animation="fadeIn"
+            duration={1200}
+            style={{
+              alignItems: 'center',
+              justifyContent: 'flex-start',
+              flex: 1,
+              width: '100%',
+              backgroundColor: 'white',
+              paddingVertical: 20,
+              borderTopLeftRadius: 50,
+              borderTopRightRadius: 50,
+            }}>
+            <Text style={styles.welcomeLabel}>{t('Welcome!')}</Text>
             <TextInput
-              placeholderTextColor="rgba(255, 255, 255, 0.7)"
+              placeholderTextColor="rgba(20, 20, 10, 0.7)"
               value={email}
               onChangeText={setEmail}
               placeholder="Email"
               style={styles.input}
             />
             <TextInput
-              placeholderTextColor="rgba(255, 255, 255, 0.7)"
+              placeholderTextColor="rgba(20, 20, 10, 0.7)"
               value={password}
               onChangeText={setPassword}
               placeholder={t('Password')}
@@ -104,7 +118,7 @@ export function SignIn() {
               isLoading={loading}
               title={t('Sign In')}
               onPress={handleLocalSignIn}
-              style={{ width: '50%', backgroundColor: '#5D3FD3' }}
+              style={{ width: '50%', backgroundColor: '#5D3FD3', margin: 5 }}
             />
             <Button
               isLoading={loading}
@@ -113,9 +127,16 @@ export function SignIn() {
                 /* Navega a la pantalla de registro */
                 navigation.navigate('SignUp');
               }}
-              style={{ width: '50%' }}
+              style={{ width: '50%', borderColor: '#5D3FD3', borderWidth: 1, backgroundColor: 'white', margin: 5 }}
+              textStyle={{ color: '#5D3FD3' }}
             />
-
+            <Text
+              style={styles.forgotPasswordLabel}
+              onPress={() => {
+                navigation.navigate('ForgotPassword');
+              }}>
+              {t('Forgot password?')}
+            </Text>
             {/* <DividerWithText />
             <Button
               isLoading={loading}
@@ -131,12 +152,20 @@ export function SignIn() {
 }
 
 const styles = StyleSheet.create({
+  welcomeLabel: {
+    fontSize: 30,
+    marginBottom: 30,
+    marginTop: 50,
+    fontWeight: 'bold',
+    color: 'black',
+  },
   input: {
     marginBottom: 20,
     width: '80%',
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    backgroundColor: 'rgba(20, 20, 10, 0.1)',
     padding: 10,
-    color: 'white',
+    color: 'black',
+    borderRadius: 10,
   },
   dividerContainer: {
     flexDirection: 'row',
@@ -152,5 +181,9 @@ const styles = StyleSheet.create({
   dividerText: {
     marginHorizontal: 10,
     color: 'white',
+  },
+  forgotPasswordLabel: {
+    marginTop: 10,
+    color: 'blue',
   },
 });

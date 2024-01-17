@@ -117,6 +117,9 @@ const resources = {
       'Premium Access': 'Premium Access',
       Security: 'Security',
       'Create Account': 'Create Account',
+      'Welcome!': 'Welcome!',
+      'Forgot password?': 'Forgot password?',
+      'Enter your email to receive a password reset link': 'Enter your email to receive a password reset link',
     },
   },
   es: {
@@ -235,6 +238,10 @@ const resources = {
       'Premium Access': 'Acceso Premium',
       Security: 'Seguridad',
       'Create Account': 'Crear Cuenta',
+      'Welcome!': '¡Bienvenido!',
+      'Forgot password?': '¿Olvidó su contraseña?',
+      'Enter your email to receive a password reset link':
+        'Introduzca su correo electrónico para recibir un enlace de restablecimiento de contraseña',
     },
   },
   pt: {
@@ -352,6 +359,10 @@ const resources = {
       'Premium Access': 'Acesso Premium',
       Security: 'Segurança',
       'Create Account': 'Criar uma conta',
+      'Welcome!': 'Bem-vindo!',
+      'Forgot Password?': 'Esqueceu a senha?',
+      'Enter your email to receive a password reset link':
+        'Digite seu e-mail para receber um link de redefinição de senha',
     },
   },
 };

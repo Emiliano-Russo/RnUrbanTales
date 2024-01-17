@@ -10,7 +10,7 @@ import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../App';
 import { API_URL } from '@env';
-const backgroundImage = require('../../assets/loginbackground3.png');
+const backgroundImage = require('../../assets/backgroundRegister.png');
 
 const userService = new UserService(API_URL);
 
@@ -44,7 +44,7 @@ export const SignUp = () => {
 
   return (
     <View style={styles.container}>
-      <ImageBackground
+      {/* <ImageBackground
         source={backgroundImage}
         style={{
           position: 'absolute',
@@ -52,7 +52,7 @@ export const SignUp = () => {
           height: Dimensions.get('window').height,
           opacity: 0.8,
         }}
-      />
+      /> */}
       <Text style={styles.title}>{t('Create Account')}</Text>
       <TextInput
         placeholderTextColor="rgba(255, 255, 255, 0.7)"
@@ -91,7 +91,7 @@ export const SignUp = () => {
         secureTextEntry
         autoCapitalize="none"
       />
-      <Button title={t('Sign Up')} style={{ width: '50%' }} onPress={handleSignUp} />
+      <Button title={t('Sign Up')} style={{ width: '50%', backgroundColor: '#5D3FD3' }} onPress={handleSignUp} />
     </View>
   );
 };
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     padding: 20,
-    backgroundColor: 'white',
+    backgroundColor: 'rgb(90,57,183)',
   },
   title: {
     fontSize: 24,
@@ -111,6 +111,7 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   input: {
+    borderRadius: 10,
     marginBottom: 20,
     width: '80%',
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
