@@ -123,6 +123,9 @@ const resources = {
       'Do you have a story to tell?': 'Do you have a story to tell?',
       'Login now and let your voice be heard': 'Login now and let your voice be heard',
       'Back to Home': 'Back to Home',
+      'Change Request Email': 'Change Request Email',
+      'An email has been sent to your account': 'An email has been sent to your account',
+      'Resend confirmation email': 'Resend confirmation email',
     },
   },
   es: {
@@ -248,6 +251,9 @@ const resources = {
       'Do you have a story to tell?': '¿Tienes una historia que contar?',
       'Login now and let your voice be heard': 'Ingrese ahora y haga oír su voz',
       'Back to Home': 'Volver al Inicio',
+      'Change Request Email': 'Email de solicitud de cambio',
+      'An email has been sent to your account': 'Un email fue enviado a tu cuenta',
+      'Resend confirmation email': 'Reenviar correo de confirmación',
     },
   },
   pt: {
@@ -372,6 +378,9 @@ const resources = {
       'Do you have a story to tell?': 'Você tem uma história para contar?',
       'Login now and let your voice be heard': 'Faça login agora e deixe sua voz ser ouvida',
       'Back to Home': 'Voltar ao início',
+      'Change Request Email': 'E-mail de solicitação de alteração',
+      'An email has been sent to your account': 'Um e-mail foi enviado para sua conta',
+      'Resend confirmation email': 'Reenviar e-mail de confirmação',
     },
   },
 };

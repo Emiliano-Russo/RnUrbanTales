@@ -215,11 +215,13 @@ const AppNavigator = () => {
         }}
         listeners={({ navigation, route }) => ({
           tabPress: e => {
+            console.log('mid pressed');
             // Previene la acción por defecto
             e.preventDefault();
 
             // Verifica si la pestaña está actualmente enfocada
             const isFocused = navigation.isFocused();
+            console.log('is focused? ', isFocused ? 'trueee' : 'falseeee');
 
             if (isFocused) {
               // Si está enfocada, ejecuta tu lógica personalizada
@@ -230,7 +232,7 @@ const AppNavigator = () => {
               // Si no está enfocada, navega a la pestaña
               navigation.navigate(route.name);
               console.log('just homeee :))');
-              dispatch(toggleCreatePressed(true));
+              dispatch(toggleCreatePressed(false));
             }
           },
         })}

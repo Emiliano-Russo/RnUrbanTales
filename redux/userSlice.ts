@@ -18,7 +18,7 @@ const initialState: UserState = {
   token: null,
   selectedLanguage: null,
   hasSeenWelcomeModal: false,
-  hasSeenPremiumOffer: false,
+  hasSeenPremiumOffer: true,
   mapFilters: { category: 'Any', hideRead: false },
 };
 
