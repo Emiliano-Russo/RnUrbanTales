@@ -26,7 +26,7 @@ const taleService = new TaleService(API_URL);
 export const Profile = () => {
   const { t, i18n } = useTranslation();
   const [talesRead, setTalesRead] = useState<any>([]);
-  const [likedTales, setLikedTales] = useState<any>();
+  const [likedTales, setLikedTales] = useState<any>([]);
   const [myTales, setMyTales] = useState<any>([]);
   const user = useSelector((state: RootState) => state.user.user);
   const navigation = useNavigation<StackNavigationProp<ProfileStackParamList, 'Profile'>>();
@@ -81,6 +81,7 @@ export const Profile = () => {
   );
 
   const Read = () => {
+    console.log('tales read', talesRead);
     return (
       <TalesCarousel
         title={t('Tales Read')}
@@ -93,6 +94,7 @@ export const Profile = () => {
     );
   };
   const Liked = () => {
+    console.log('tales liked:', likedTales);
     return (
       <TalesCarousel
         title={t('Liked Tales')}
@@ -105,6 +107,7 @@ export const Profile = () => {
     );
   };
   const Creations = () => {
+    console.log('tales creation: ', myTales);
     return (
       <TalesCarousel
         title={t('Creations')}

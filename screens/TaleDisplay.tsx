@@ -86,7 +86,8 @@ export const TaleDisplay: React.FC<TaleDisplayProps> = ({ route }) => {
   }, []);
 
   useEffect(() => {
-    if (isCreation == false) {
+    if (isCreation == false && user.user != null) {
+      console.log('yes');
       const timer = setTimeout(() => {
         setShowReadButton(true);
       }, 3000);
