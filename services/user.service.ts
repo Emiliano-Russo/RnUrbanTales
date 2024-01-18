@@ -77,15 +77,15 @@ export class UserService {
     return response.data;
   }
 
-  public async resendConfirmationEmail(email: string): Promise<any> {
-    const response = await this.api.post('/user/send-confirmation-email', {
+  public async requestEmailChange(email: string): Promise<any> {
+    const response = await this.api.post('/request-email-change', {
       email,
     });
     return response.data;
   }
 
-  public async requestEmailChange(email: string): Promise<any> {
-    const response = await this.api.post('/request-email-change', {
+  public async resendConfirmationEmail(email: string): Promise<any> {
+    const response = await this.api.post('/user/send-confirmation-email', {
       email,
     });
     return response.data;
