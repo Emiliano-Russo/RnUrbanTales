@@ -129,12 +129,66 @@ const NewTaleNavigator = () => {
   return (
     <AuthWrapper>
       <NewTaleStack.Navigator>
-        <NewTaleStack.Screen name="Title" component={NewTaleTitle} options={{ headerTitle: title }} />
-        <NewTaleStack.Screen name="Image" component={NewTaleImage} options={{ headerTitle: image }} />
-        <NewTaleStack.Screen name="Narration" component={NewTaleNarrative} options={{ headerTitle: narration }} />
-        <NewTaleStack.Screen name="Category" component={NewTaleCategory} options={{ headerTitle: category }} />
-        <NewTaleStack.Screen name="Mark" component={NewTaleMark} options={{ headerTitle: mark }} />
-        <NewTaleStack.Screen name="Anonymous" component={NewTaleIsAnonymous} options={{ headerTitle: anonymous }} />
+        <NewTaleStack.Screen
+          name="Title"
+          component={NewTaleTitle}
+          options={{
+            headerTitle: title,
+            headerTitleStyle: {
+              fontFamily: 'Merriweather-Regular',
+            },
+          }}
+        />
+        <NewTaleStack.Screen
+          name="Image"
+          component={NewTaleImage}
+          options={{
+            headerTitle: image,
+            headerTitleStyle: {
+              fontFamily: 'Merriweather-Regular',
+            },
+          }}
+        />
+        <NewTaleStack.Screen
+          name="Narration"
+          component={NewTaleNarrative}
+          options={{
+            headerTitle: narration,
+            headerTitleStyle: {
+              fontFamily: 'Merriweather-Regular',
+            },
+          }}
+        />
+        <NewTaleStack.Screen
+          name="Category"
+          component={NewTaleCategory}
+          options={{
+            headerTitle: category,
+            headerTitleStyle: {
+              fontFamily: 'Merriweather-Regular',
+            },
+          }}
+        />
+        <NewTaleStack.Screen
+          name="Mark"
+          component={NewTaleMark}
+          options={{
+            headerTitle: mark,
+            headerTitleStyle: {
+              fontFamily: 'Merriweather-Regular',
+            },
+          }}
+        />
+        <NewTaleStack.Screen
+          name="Anonymous"
+          component={NewTaleIsAnonymous}
+          options={{
+            headerTitle: anonymous,
+            headerTitleStyle: {
+              fontFamily: 'Merriweather-Regular',
+            },
+          }}
+        />
       </NewTaleStack.Navigator>
     </AuthWrapper>
   );
@@ -171,13 +225,76 @@ const ProfileNavigator = () => {
   return (
     <ProfileStack.Navigator>
       <ProfileStack.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
-      <ProfileStack.Screen name={'Settings'} component={Settings} options={{ title: settings }} />
-      <ProfileStack.Screen name={'EditUser'} component={EditUser} options={{ title: editUser }} />
-      <ProfileStack.Screen name={'Security'} component={Security} options={{ title: security }} />
-      <ProfileStack.Screen name={'Support'} component={Support} options={{ title: support }} />
-      <ProfileStack.Screen name={'Language'} component={Language} options={{ title: language }} />
-      <ProfileStack.Screen name={'About'} component={About} options={{ title: about }} />
-      <ProfileStack.Screen name={'DeleteAccount'} component={DeleteAccount} options={{ title: deleteAccount }} />
+      <ProfileStack.Screen
+        name={'Settings'}
+        component={Settings}
+        options={{
+          title: settings,
+          headerTitleStyle: {
+            fontFamily: 'Merriweather-Regular',
+          },
+        }}
+      />
+      <ProfileStack.Screen
+        name={'EditUser'}
+        component={EditUser}
+        options={{
+          title: editUser,
+          headerTitleStyle: {
+            fontFamily: 'Merriweather-Regular',
+          },
+        }}
+      />
+      <ProfileStack.Screen
+        name={'Security'}
+        component={Security}
+        options={{
+          title: security,
+          headerTitleStyle: {
+            fontFamily: 'Merriweather-Regular',
+          },
+        }}
+      />
+      <ProfileStack.Screen
+        name={'Support'}
+        component={Support}
+        options={{
+          title: support,
+          headerTitleStyle: {
+            fontFamily: 'Merriweather-Regular',
+          },
+        }}
+      />
+      <ProfileStack.Screen
+        name={'Language'}
+        component={Language}
+        options={{
+          title: language,
+          headerTitleStyle: {
+            fontFamily: 'Merriweather-Regular',
+          },
+        }}
+      />
+      <ProfileStack.Screen
+        name={'About'}
+        component={About}
+        options={{
+          title: about,
+          headerTitleStyle: {
+            fontFamily: 'Merriweather-Regular',
+          },
+        }}
+      />
+      <ProfileStack.Screen
+        name={'DeleteAccount'}
+        component={DeleteAccount}
+        options={{
+          title: deleteAccount,
+          headerTitleStyle: {
+            fontFamily: 'Merriweather-Regular',
+          },
+        }}
+      />
     </ProfileStack.Navigator>
   );
 };
@@ -196,7 +313,7 @@ const AppNavigator = () => {
           tabBarLabel: ({ color, focused }) => <Text style={{ color }}>{t('Highlights')}</Text>,
           headerTitle: t('Highlights'),
           headerTitleStyle: {
-            fontFamily: 'boldFont', // Estilo del texto del encabezado
+            fontFamily: 'Merriweather-Regular', // Estilo del texto del encabezado
           },
         }}
       />
