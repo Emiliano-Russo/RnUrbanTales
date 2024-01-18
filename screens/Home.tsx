@@ -28,6 +28,7 @@ export const Home = () => {
   const [selectedLocation, setSelectedLocation] = useState<null | LatLng>(null);
   const [modalSignInNow, setModalSignInNow] = useState(false);
   const [modalFilters, setModalFilters] = useState(false);
+  const [modalRequestlocation, setModalRequestLocation] = useState(false);
   const [showAlertZoom, setShowAlertZoom] = useState(false);
   const [showLoading, setShowLoading] = useState(false);
   const [lastCheckpoint, setLastCheckpoint] = useState<LatLng>({
@@ -52,7 +53,8 @@ export const Home = () => {
         },
         error => {
           // Manejar posibles errores
-          console.error(error);
+          setModalRequestLocation(true);
+          console.error('error getting current position', error);
         },
         { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 },
       );
@@ -155,6 +157,8 @@ export const Home = () => {
         modalSignInNow={modalSignInNow}
         setModalFilters={setModalFilters}
         setModalSignInNow={setModalSignInNow}
+        modalRequestLocation={modalRequestlocation}
+        setModalRequestLocation={setModalRequestLocation}
       />
       <View
         style={{

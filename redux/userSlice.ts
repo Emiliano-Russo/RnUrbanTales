@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { IUser } from '../interfaces/User';
+import { PREMIUM_ACTIVE } from '@env';
 
 // This type reflects that either the user and token are set, or both are null
 type UserState = {
@@ -18,7 +19,7 @@ const initialState: UserState = {
   token: null,
   selectedLanguage: null,
   hasSeenWelcomeModal: false,
-  hasSeenPremiumOffer: true,
+  hasSeenPremiumOffer: PREMIUM_ACTIVE == '1' ? false : true,
   mapFilters: { category: 'Any', hideRead: false },
 };
 

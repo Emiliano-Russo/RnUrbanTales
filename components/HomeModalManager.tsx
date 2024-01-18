@@ -7,6 +7,7 @@ import { setHasSeenPremiumOfferAsync } from '../redux/userSlice';
 import { ModalSignInNow } from '../components/ModalSignInNow';
 import { ModalMapFilters } from '../components/ModalMapFilters';
 import { ModalPremium2 } from './ModalPremium2';
+import { ModalRequestLocation } from './ModalRequestLocation';
 
 interface Props {
   hasSeenPremiumOffer: boolean;
@@ -15,6 +16,8 @@ interface Props {
   applyFilters: (category: string, hideRead: boolean) => Promise<void>;
   setModalSignInNow: Dispatch<SetStateAction<boolean>>;
   modalSignInNow: boolean;
+  modalRequestLocation: boolean;
+  setModalRequestLocation: Dispatch<SetStateAction<boolean>>;
 }
 
 export const HomeModalManager = (props: Props) => {
@@ -33,6 +36,7 @@ export const HomeModalManager = (props: Props) => {
         }}
       />
       <ModalSignInNow setVisible={props.setModalSignInNow} visible={props.modalSignInNow} />
+      <ModalRequestLocation modalVisible={props.modalRequestLocation} setModalVisible={props.setModalRequestLocation} />
     </View>
   );
 };
