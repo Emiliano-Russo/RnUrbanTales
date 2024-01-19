@@ -53,7 +53,9 @@ export const SignUp = () => {
           opacity: 0.8,
         }}
       /> */}
-      <Text style={styles.title}>{t('Create Account')}</Text>
+      <Text fontType="boldFont" style={styles.title}>
+        {t('Create Account')}
+      </Text>
       <TextInput
         placeholderTextColor="rgba(255, 255, 255, 0.7)"
         style={styles.input}
@@ -106,7 +108,6 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
     marginBottom: 20,
     color: 'white',
   },

@@ -123,7 +123,7 @@ export const Profile = () => {
     );
   };
 
-  console.log('user subscriptions: ', user?.subscription);
+  console.log('user: ', user);
 
   const Premium = () => {
     if (user && user.subscription && user.subscription && user.subscription.status == 'active')
@@ -145,7 +145,7 @@ export const Profile = () => {
           justifyContent: 'flex-start',
           flex: 1,
         }}>
-        {userGeneral.hasSeenEmailVerified == false && user.emailVerified == false && (
+        {user && user != null && userGeneral.hasSeenEmailVerified == false && user.emailVerified == false && (
           <TouchableOpacity
             style={{
               backgroundColor: '#cc9cff',
