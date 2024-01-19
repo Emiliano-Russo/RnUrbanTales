@@ -2,8 +2,8 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { View, ScrollView, StyleSheet, Image, TouchableOpacity, Dimensions, SafeAreaView } from 'react-native';
 import { Button, Text } from '../tool-components/index';
-import { useSelector } from 'react-redux';
-import { RootState } from '../redux/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../redux/store';
 import { BoxSignInNowProfile } from '../components/BoxSignInNowProfile';
 import { BoxLetsGoPremium } from '../components/BoxLetsGoPremium';
 import { BoxUserName } from '../components/BoxUserName';
@@ -16,6 +16,7 @@ import { UserService } from '../services/user.service';
 import { API_URL, PREMIUM_ACTIVE } from '@env';
 import { TaleService } from '../services/tale.service';
 import { use } from 'i18next';
+import { setHasSeenEmailVerifiedAsync } from '../redux/userSlice';
 
 const crown = require('../assets/premium_crown.png');
 const Diamond = require('../assets/iconsHTML/white/diamond.png');
@@ -28,13 +29,15 @@ export const Profile = () => {
   const [talesRead, setTalesRead] = useState<any>([]);
   const [likedTales, setLikedTales] = useState<any>([]);
   const [myTales, setMyTales] = useState<any>([]);
-  const user = useSelector((state: RootState) => state.user.user);
+  const userGeneral = useSelector((state: RootState) => state.user);
+  const user = userGeneral.user;
   const navigation = useNavigation<StackNavigationProp<ProfileStackParamList, 'Profile'>>();
   const navigationTalStack = useNavigation<StackNavigationProp<TaleStackParamList, 'Home'>>();
   const openSettings = () => {
     console.log('Open Settings');
     navigation.navigate('Settings');
   };
+  const dispatch: AppDispatch = useDispatch();
 
   useFocusEffect(
     useCallback(() => {
@@ -142,6 +145,29 @@ export const Profile = () => {
           justifyContent: 'flex-start',
           flex: 1,
         }}>
+        {userGeneral.hasSeenEmailVerified == false && user.emailVerified == false && (
+          <TouchableOpacity
+            style={{
+              backgroundColor: '#cc9cff',
+              width: '80%',
+              padding: 10,
+              alignItems: 'center',
+              borderRadius: 10,
+              marginTop: 20,
+            }}
+            onPress={() => {
+              navigation.navigate('Security');
+            }}>
+            <Text style={{ color: 'white' }}>{t('Email not yet verified')}</Text>
+            <TouchableOpacity
+              style={{ position: 'absolute', right: 6, top: 2 }}
+              onPress={() => {
+                dispatch(setHasSeenEmailVerifiedAsync(true));
+              }}>
+              <Text style={{ color: 'white' }}>X</Text>
+            </TouchableOpacity>
+          </TouchableOpacity>
+        )}
         {PREMIUM_ACTIVE == '1' && <Premium />}
         {user && user != null ? <BoxUserName name={user.name} onClick={openSettings} /> : <BoxSignInNowProfile />}
         <Tabs

@@ -10,6 +10,7 @@ type UserState = {
   selectedLanguage: string | null;
   hasSeenWelcomeModal: boolean;
   hasSeenPremiumOffer: boolean;
+  hasSeenEmailVerified: boolean;
   mapFilters: { category: string; hideRead: boolean };
 };
 
@@ -20,6 +21,7 @@ const initialState: UserState = {
   selectedLanguage: null,
   hasSeenWelcomeModal: false,
   hasSeenPremiumOffer: PREMIUM_ACTIVE == '1' ? false : true,
+  hasSeenEmailVerified: false,
   mapFilters: { category: 'Any', hideRead: false },
 };
 
@@ -34,14 +36,21 @@ export const clearAsyncStorageAsync = createAsyncThunk('development/clearAsyncSt
 
 export const loadInitialStateAsync = createAsyncThunk('user/loadInitialState', async (_, { dispatch }) => {
   try {
-    const [userString, token, selectedLanguage, hasSeenWelcomeModalString, hasSeenPremiumOfferString] =
-      await Promise.all([
-        AsyncStorage.getItem('user'),
-        AsyncStorage.getItem('token'),
-        AsyncStorage.getItem('selectedLanguage'),
-        AsyncStorage.getItem('hasSeenWelcomeModal'),
-        AsyncStorage.getItem('hasSeenPremiumOffer'),
-      ]);
+    const [
+      userString,
+      token,
+      selectedLanguage,
+      hasSeenWelcomeModalString,
+      hasSeenPremiumOfferString,
+      hasSeenEmailVerifiedString,
+    ] = await Promise.all([
+      AsyncStorage.getItem('user'),
+      AsyncStorage.getItem('token'),
+      AsyncStorage.getItem('selectedLanguage'),
+      AsyncStorage.getItem('hasSeenWelcomeModal'),
+      AsyncStorage.getItem('hasSeenPremiumOffer'),
+      AsyncStorage.getItem('hasSeenEmailVerified'),
+    ]);
 
     if (userString && token) {
       const objUserNToken = { token: token, user: JSON.parse(userString) };
@@ -49,7 +58,8 @@ export const loadInitialStateAsync = createAsyncThunk('user/loadInitialState', a
     }
     if (selectedLanguage) dispatch(setSelectedLanguageAsync(selectedLanguage));
     if (hasSeenWelcomeModalString) dispatch(setHasSeenWelcomeModalAsync(JSON.parse(hasSeenWelcomeModalString)));
-    if (hasSeenPremiumOfferString) dispatch(setHasSeenPremiumOfferAsync(JSON.parse(hasSeenPremiumOfferString))); // Agrega esta línea
+    if (hasSeenPremiumOfferString) dispatch(setHasSeenPremiumOfferAsync(JSON.parse(hasSeenPremiumOfferString)));
+    if (hasSeenEmailVerifiedString) dispatch(setHasSeenEmailVerifiedAsync(JSON.parse(hasSeenEmailVerifiedString)));
 
     // Retornar el estado completo o parcial si es necesario
     return {
@@ -58,6 +68,7 @@ export const loadInitialStateAsync = createAsyncThunk('user/loadInitialState', a
       selectedLanguage: selectedLanguage || null,
       hasSeenWelcomeModal: hasSeenWelcomeModalString ? JSON.parse(hasSeenWelcomeModalString) : false,
       hasSeenPremiumOffer: hasSeenPremiumOfferString ? JSON.parse(hasSeenPremiumOfferString) : false,
+      hasSeenEmailVerified: hasSeenEmailVerifiedString ? JSON.parse(hasSeenEmailVerifiedString) : false,
     };
   } catch (error) {
     console.error('Error loading initial state from AsyncStorage:', error);
@@ -83,6 +94,19 @@ export const setHasSeenPremiumOfferAsync = createAsyncThunk('user/setHasSeenPrem
     throw error;
   }
 });
+
+export const setHasSeenEmailVerifiedAsync = createAsyncThunk(
+  'user/setHasSeenEmailVerified',
+  async (hasSeen: boolean) => {
+    try {
+      await AsyncStorage.setItem('hasSeenEmailVerified', JSON.stringify(hasSeen));
+      return hasSeen;
+    } catch (error) {
+      console.error('Error saving hasSeenEmailVerified to AsyncStorage:', error);
+      throw error;
+    }
+  },
+);
 
 export const getHasSeenPremiumOfferAsync = createAsyncThunk('user/getHasSeenPremiumOffer', async () => {
   try {
@@ -207,6 +231,9 @@ const userSlice = createSlice({
     });
     builder.addCase(setHasSeenPremiumOfferAsync.fulfilled, (state, action: PayloadAction<boolean>) => {
       state.hasSeenPremiumOffer = action.payload;
+    });
+    builder.addCase(setHasSeenEmailVerifiedAsync.fulfilled, (state, action: PayloadAction<boolean>) => {
+      state.hasSeenEmailVerified = action.payload;
     });
     builder.addCase(getHasSeenPremiumOfferAsync.fulfilled, (state, action: PayloadAction<boolean>) => {
       state.hasSeenPremiumOffer = action.payload;

@@ -126,6 +126,7 @@ const resources = {
       'Change Request Email': 'Change Request Email',
       'An email has been sent to your account': 'An email has been sent to your account',
       'Resend confirmation email': 'Resend confirmation email',
+      'Email not yet verified': 'Email not yet verified',
     },
   },
   es: {
@@ -254,6 +255,7 @@ const resources = {
       'Change Request Email': 'Email de solicitud de cambio',
       'An email has been sent to your account': 'Un email fue enviado a tu cuenta',
       'Resend confirmation email': 'Reenviar correo de confirmación',
+      'Email not yet verified': 'Email aun sin verificar',
     },
   },
   pt: {
@@ -381,6 +383,7 @@ const resources = {
       'Change Request Email': 'E-mail de solicitação de alteração',
       'An email has been sent to your account': 'Um e-mail foi enviado para sua conta',
       'Resend confirmation email': 'Reenviar e-mail de confirmação',
+      'Email not yet verified': 'Email ainda não verificado',
     },
   },
 };

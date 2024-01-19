@@ -50,7 +50,7 @@ export const Security = () => {
     userService
       .requestPasswordReset(user.email)
       .then(res => {
-        Alert.alert(t('Request Change Password'), t('An email has been sent to your account to change your password.'));
+        Alert.alert(t('Request Change Password'), t('An email has been sent to your account'));
       })
       .catch(err => {
         alert('Error');

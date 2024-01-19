@@ -78,7 +78,7 @@ export class UserService {
   }
 
   public async requestEmailChange(email: string): Promise<any> {
-    const response = await this.api.post('/request-email-change', {
+    const response = await this.api.post('/user/request-email-change', {
       email,
     });
     return response.data;
