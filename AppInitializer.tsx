@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import SplashScreen from 'react-native-splash-screen';
 import { loadInitialStateAsync } from './redux/userSlice';
 import { AppDispatch } from './redux/store';
-import Purchases from 'react-native-purchases';
 import { Platform } from 'react-native';
 import { REVENUECAT_APIKEY_ANDROID } from '@env';
 
@@ -12,24 +11,24 @@ export const AppInitializer = ({ children }) => {
   const [fontsLoaded, setFontsLoaded] = useState(false);
   const dispatch: AppDispatch = useDispatch();
 
-  async function initializeRevenueCat() {
-    console.log('INITIALIZING!!!!!!!!');
-    try {
-      Purchases.setLogLevel(Purchases.LOG_LEVEL.DEBUG);
-      if (Platform.OS === 'ios') {
-        //await Purchases.configure({ apiKey: '<public_apple_api_key>' });
-      } else if (Platform.OS === 'android') {
-        console.log('android api key: ', REVENUECAT_APIKEY_ANDROID);
-        await Purchases.configure({ apiKey: REVENUECAT_APIKEY_ANDROID });
-        console.log('configured successfully!');
-      }
-    } catch (e) {
-      console.warn('Error al inicializar RevenueCat', e);
-    }
-  }
+  // async function initializeRevenueCat() {
+  //   console.log('INITIALIZING!!!!!!!!');
+  //   try {
+  //     Purchases.setLogLevel(Purchases.LOG_LEVEL.DEBUG);
+  //     if (Platform.OS === 'ios') {
+  //       //await Purchases.configure({ apiKey: '<public_apple_api_key>' });
+  //     } else if (Platform.OS === 'android') {
+  //       console.log('android api key: ', REVENUECAT_APIKEY_ANDROID);
+  //       await Purchases.configure({ apiKey: REVENUECAT_APIKEY_ANDROID });
+  //       console.log('configured successfully!');
+  //     }
+  //   } catch (e) {
+  //     console.warn('Error al inicializar RevenueCat', e);
+  //   }
+  // }
 
   useEffect(() => {
-    initializeRevenueCat();
+    // initializeRevenueCat();
     dispatch(loadInitialStateAsync());
   }, [dispatch]);
 
