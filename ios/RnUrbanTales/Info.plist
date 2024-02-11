@@ -34,7 +34,7 @@
 		<true/>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>Urban Tales requires access to your location to identify tales and experiences near you.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Merriweather-Black.ttf</string>
