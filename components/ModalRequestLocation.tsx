@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Modal, View, StyleSheet, TouchableOpacity, Text, Platform, PermissionsAndroid } from 'react-native';
 import { Button } from '../tool-components/index';
 import Geolocation from 'react-native-geolocation-service';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   modalVisible: boolean;
@@ -10,6 +11,7 @@ interface Props {
 
 export const ModalRequestLocation = (props: Props) => {
   const [status, setStatus] = useState<string | undefined>(undefined);
+  const { t } = useTranslation();
   const handleAllowLocation = () => {
     // Lógica para manejar el permiso de ubicación
     handleLocationAccess();
@@ -67,12 +69,9 @@ export const ModalRequestLocation = (props: Props) => {
       <TouchableOpacity style={styles.modalOverlay} activeOpacity={1} onPressOut={() => props.setModalVisible(false)}>
         <View style={styles.modalContent}>
           <Text style={styles.modalText}>
-            ¡Descubre las historias cercanas! 🌍 Para brindarte una experiencia completa en Urban Tales, es crucial
-            acceder a tu ubicación.
-          </Text>
-          <Text style={styles.modalText}>
-            Si no permites el acceso, te ubicaremos en una zona aleatoria del mapa, limitando la experiencia
-            personalizada que podemos ofrecerte.
+            {t(
+              "To fully enjoy Urban Tales and discover nearby stories, it's crucial to allow access to your location. Otherwise, you'll be placed in a random area, limiting the personalized experience we can offer you.",
+            )}
           </Text>
           <View style={{ flexDirection: 'row' }}>
             <Button title="Permitir ubicación" onPress={handleAllowLocation} />

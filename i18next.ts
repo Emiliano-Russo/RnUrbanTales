@@ -127,6 +127,8 @@ const resources = {
       'An email has been sent to your account': 'An email has been sent to your account',
       'Resend confirmation email': 'Resend confirmation email',
       'Email not yet verified': 'Email not yet verified',
+      "To fully enjoy Urban Tales and discover nearby stories, it's crucial to allow access to your location. Otherwise, you'll be placed in a random area, limiting the personalized experience we can offer you.":
+        "To fully enjoy Urban Tales and discover nearby stories, it's crucial to allow access to your location. Otherwise, you'll be placed in a random area, limiting the personalized experience we can offer you.",
     },
   },
   es: {
@@ -256,6 +258,8 @@ const resources = {
       'An email has been sent to your account': 'Un email fue enviado a tu cuenta',
       'Resend confirmation email': 'Reenviar correo de confirmación',
       'Email not yet verified': 'Email aun sin verificar',
+      "To fully enjoy Urban Tales and discover nearby stories, it's crucial to allow access to your location. Otherwise, you'll be placed in a random area, limiting the personalized experience we can offer you.":
+        'Para disfrutar al máximo de Urban Tales y descubrir historias cercanas, es crucial permitir el acceso a tu ubicación. De lo contrario, serás ubicado en una zona aleatoria, limitando la experiencia personalizada que podemos ofrecerte.',
     },
   },
   pt: {
@@ -384,6 +388,8 @@ const resources = {
       'An email has been sent to your account': 'Um e-mail foi enviado para sua conta',
       'Resend confirmation email': 'Reenviar e-mail de confirmação',
       'Email not yet verified': 'Email ainda não verificado',
+      "To fully enjoy Urban Tales and discover nearby stories, it's crucial to allow access to your location. Otherwise, you'll be placed in a random area, limiting the personalized experience we can offer you.":
+        'Para aproveitar ao máximo o Urban Tales e descobrir histórias próximas, é crucial permitir o acesso à sua localização. Caso contrário, você será colocado em uma área aleatória, limitando a experiência personalizada que podemos oferecer.',
     },
   },
 };

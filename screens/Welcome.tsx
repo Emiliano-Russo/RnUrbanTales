@@ -53,15 +53,24 @@ export const WelcomeScreen = () => {
           },
           error => {
             // Maneja el error aquí
+            dispatch(setHasSeenWelcomeModalAsync(true));
+            navigation.dispatch(StackActions.replace('App'));
+            alert('Error With Location');
             console.error(error);
           },
           { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 },
         );
       } else {
         console.error('No se ha dado permiso para acceder a la ubicación');
+        dispatch(setHasSeenWelcomeModalAsync(true));
+        navigation.dispatch(StackActions.replace('App'));
+        alert('No Location Granted');
       }
     } catch (error) {
       console.error('Error al solicitar permisos de ubicación:', error);
+      dispatch(setHasSeenWelcomeModalAsync(true));
+      navigation.dispatch(StackActions.replace('App'));
+      alert('Error');
     }
   };
 
