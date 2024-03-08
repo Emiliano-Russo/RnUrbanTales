@@ -13,6 +13,7 @@ import { HomeHeader } from '../components/HomeHeader';
 import { HomeMap } from '../components/HomeMap';
 import { calculateDistance } from '../utils/math';
 import { HomeModalManager } from '../components/HomeModalManager';
+import { useTranslation } from 'react-i18next';
 
 const taleService = new TaleService(API_URL);
 
@@ -39,6 +40,7 @@ export const Home = () => {
 
   const { user, mapFilters, hasSeenPremiumOffer } = useSelector((state: RootState) => state.user);
   const dispatch: AppDispatch = useDispatch();
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     (async () => {
@@ -86,6 +88,7 @@ export const Home = () => {
           1,
           20,
           mapFilters.category,
+          i18n.language,
           user && mapFilters.hideRead == true ? { hideRead: mapFilters.hideRead, userId: user.id } : undefined,
         )
         .then(newTalesResponse => {

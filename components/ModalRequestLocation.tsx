@@ -68,14 +68,14 @@ export const ModalRequestLocation = (props: Props) => {
     <Modal transparent={true} visible={props.modalVisible} onRequestClose={() => props.setModalVisible(false)}>
       <TouchableOpacity style={styles.modalOverlay} activeOpacity={1} onPressOut={() => props.setModalVisible(false)}>
         <View style={styles.modalContent}>
-          <Text style={styles.modalText}>
-            {t(
-              "To fully enjoy Urban Tales and discover nearby stories, it's crucial to allow access to your location. Otherwise, you'll be placed in a random area, limiting the personalized experience we can offer you.",
-            )}
-          </Text>
+          <Text style={styles.modalText}>{t('solt')}</Text>
           <View style={{ flexDirection: 'row' }}>
-            <Button title="Permitir ubicación" onPress={handleAllowLocation} />
-            <Button title="Explorar sin ubicación" onPress={handleDenyLocation} />
+            <Button title={t('Allow Location Access')} onPress={handleAllowLocation} />
+            <Button
+              style={{ backgroundColor: '#7fbb66' }}
+              title={t('Explore without location')}
+              onPress={handleDenyLocation}
+            />
           </View>
         </View>
       </TouchableOpacity>

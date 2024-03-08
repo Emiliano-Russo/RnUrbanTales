@@ -146,9 +146,9 @@ export const WelcomeScreen = () => {
               {t('Immerse')}
             </Animatable.Text>
             <Animatable.Text animation="fadeInDown" duration={1200} style={styles.description}>
-              {t('WelcomeTextLocation')}
+              {t('solt')}
             </Animatable.Text>
-            <Button title={t('Allow Location Access')} onPress={handleLocationAccess} />
+            <Button title={t('Continue')} onPress={handleLocationAccess} />
           </View>
         )}
       </View>

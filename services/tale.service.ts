@@ -36,10 +36,11 @@ export class TaleService {
     page: number,
     limit: number,
     category: string,
+    languageCode: string,
     taleRead?: { hideRead: boolean; userId: string },
   ): Promise<PaginatedResponse<ITale[]>> {
     console.log('find all in area with: ' + this.baseUrl);
-    let query = `/tale/area?latitude=${latitude}&longitude=${longitude}&diameterKm=${diameterKm}&page=${page}&limit=${limit}`;
+    let query = `/tale/area?latitude=${latitude}&longitude=${longitude}&diameterKm=${diameterKm}&page=${page}&limit=${limit}&languageCode=${languageCode}`;
     if (category != 'Any') {
       query = query + `&category=${category}`;
     }
@@ -179,8 +180,8 @@ export class TaleService {
     return response.data;
   }
 
-  public async getTopLiked(): Promise<any> {
-    const response = await this.api.get(`/tale/top-liked`);
+  public async getTopLiked(languageCode: string): Promise<any> {
+    const response = await this.api.get(`/tale/top-liked?languageCode=${languageCode}`);
     return response.data;
   }
 }

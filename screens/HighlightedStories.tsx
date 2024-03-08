@@ -8,6 +8,7 @@ import { API_URL } from '@env';
 import { ITaleMini } from '../interfaces/Tale';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { TaleStackParamList } from '../App';
+import { useTranslation } from 'react-i18next';
 
 const taleService = new TaleService(API_URL);
 
@@ -15,9 +16,10 @@ export const Highlights = () => {
   const navigationTalStack = useNavigation<StackNavigationProp<TaleStackParamList, 'Home'>>();
   const [tales, setTales] = useState<ITaleMini[]>([]);
   const animatableRefs = useRef([]);
+  const { t, i18n } = useTranslation();
 
   const fetchTopLikedTales = useCallback(() => {
-    taleService.getTopLiked().then(res => {
+    taleService.getTopLiked(i18n.language.toUpperCase()).then(res => {
       setTales(res);
       animatableRefs.current = animatableRefs.current.slice(0, res.length);
     });
