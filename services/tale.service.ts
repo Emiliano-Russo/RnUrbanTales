@@ -64,6 +64,7 @@ export class TaleService {
       longitude: taleData.longitude,
       isAnonymous: taleData.isAnonymous ? taleData.isAnonymous : false,
       mark: taleData.mark,
+      languageCode: taleData.languageCode,
     };
 
     const response = await this.api.post('/tale', requestBody, {

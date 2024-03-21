@@ -1,15 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import {
-  View,
-  StyleSheet,
-  Dimensions,
-  TextInput,
-  ImageBackground,
-  ScrollView,
-  ActivityIndicator,
-  TouchableOpacity,
-  Platform,
-} from 'react-native';
+import { View, StyleSheet, Dimensions, TextInput, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
 import { Button, Text } from '../../tool-components/index';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
@@ -47,29 +37,36 @@ export const NewTaleNarrative = () => {
   );
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title} fontType="boldFont">
-        {tale.title}
-      </Text>
-      <TextInput
-        value={narrative}
-        onChangeText={text => {
-          setNarrative(text);
-          setHasUnsavedChanges(true);
-          debouncedSaveNarrative();
-        }}
-        multiline
-        style={styles.textInput}
-        placeholder="Start writing your tale here..."
-      />
-      <Text style={styles.characterCounter}>{tale.narrative.length}/8000</Text>
+    <KeyboardAvoidingView
+      style={{ flex: 1 }}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      keyboardVerticalOffset={Platform.OS === 'ios' ? 64 : 0} // Ajusta este valor según sea necesario
+    >
+      <ScrollView contentContainerStyle={styles.container}>
+        <Text style={styles.title} fontType="boldFont">
+          {tale.title}
+        </Text>
 
-      <Button
-        onPress={() => navigation.navigate('Anonymous')}
-        title={t('Next')}
-        style={{ width: 100, alignSelf: 'center' }}
-      />
-    </ScrollView>
+        <TextInput
+          value={narrative}
+          onChangeText={text => {
+            setNarrative(text);
+            setHasUnsavedChanges(true);
+            debouncedSaveNarrative();
+          }}
+          multiline
+          style={styles.textInput}
+          placeholder="Start writing your tale here..."
+        />
+        <Text style={styles.characterCounter}>{tale.narrative.length}/8000</Text>
+
+        <Button
+          onPress={() => navigation.navigate('Anonymous')}
+          title={t('Next')}
+          style={{ width: 100, alignSelf: 'center' }}
+        />
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 };
 

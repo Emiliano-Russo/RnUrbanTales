@@ -13,6 +13,7 @@ export interface ITale {
   mark: string;
   likesCount: number;
   dislikesCount: number;
+  languageCode: string;
   user?: IUser; //we need this one (the user who created the tale)
   reactions?: ITaleReaction[]; //we dont need this cause we got likecounts and dislikescount
   reports?: ITaleReport[]; // we dont need this one
@@ -28,6 +29,7 @@ export interface ITaleCreate {
   longitude: string;
   isAnonymous: boolean;
   mark: string;
+  languageCode: string;
 }
 
 export interface ITaleRead {

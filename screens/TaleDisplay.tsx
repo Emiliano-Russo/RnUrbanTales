@@ -50,6 +50,7 @@ export const TaleDisplay: React.FC<TaleDisplayProps> = ({ route }) => {
   const user = useSelector((state: RootState) => state.user);
   const navigation = useNavigation<StackNavigationProp<TaleStackParamList, 'TaleDisplay'>>();
   const dispatch: AppDispatch = useDispatch();
+  const { i18n } = useTranslation();
 
   useEffect(() => {
     if (!isCreation && taleId) {
@@ -75,6 +76,7 @@ export const TaleDisplay: React.FC<TaleDisplayProps> = ({ route }) => {
         mark: creationalTale.mark,
         narrative: creationalTale.narrative,
         title: creationalTale.title,
+        languageCode: i18n.language,
         //the rest is invented
         createdAt: new Date(),
         dislikesCount: 0,
