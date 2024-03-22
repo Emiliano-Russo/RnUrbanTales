@@ -76,7 +76,7 @@ export const Home = () => {
     } else {
       setShowAlertZoom(false);
     }
-    if (distance > 10) {
+    if (distance > 1) {
       setLastCheckpoint({ latitude: region.latitude, longitude: region.longitude });
       // Actualizar coordenadas en el backend
       setShowLoading(true);
