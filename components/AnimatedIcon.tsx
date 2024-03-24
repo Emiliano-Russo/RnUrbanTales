@@ -1,10 +1,9 @@
 import { useEffect } from 'react';
 import { View, Image } from 'react-native';
-import Animated, { useSharedValue, useAnimatedStyle, withTiming, withSpring } from 'react-native-reanimated';
+import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 
-export const AnimatedIcon = ({ focused, source }) => {
-  console.log('Animated Icon... focused:', focused);
-  // Valor compartido para la animación de escala
+export const AnimatedIcon = ({ focused, source, first_background, second_background }) => {
+  // Valor compartido para la animación de escala y posición
   const scale = useSharedValue(1);
   const top = useSharedValue(0);
 
@@ -14,7 +13,8 @@ export const AnimatedIcon = ({ focused, source }) => {
       transform: [{ scale: scale.value }],
       top: top.value,
       position: 'absolute',
-      backgroundColor: '#c7ccd4',
+      // backgroundColor y borderRadius pueden ser estáticos si no se animan
+      backgroundColor: first_background,
       padding: 5,
       borderRadius: 30,
     };
@@ -22,14 +22,20 @@ export const AnimatedIcon = ({ focused, source }) => {
 
   // Efecto para iniciar la animación cuando el icono está enfocado
   useEffect(() => {
-    console.log('Focused ha cambiado:', focused);
-    scale.value = withSpring(focused ? 1.4 : 1);
-    top.value = withSpring(focused ? -20 : 0);
-  }, [focused]);
+    scale.value = withTiming(focused ? 1.4 : 1, { duration: 300 });
+    top.value = withTiming(focused ? -20 : 0, { duration: 300 });
+  }, [focused, scale, top]);
+
+  // Decidiendo el color del contenedor interior basado en el estado enfocado
+  const containerStyle = {
+    backgroundColor: focused ? second_background : 'transparent',
+    padding: 5,
+    borderRadius: 20,
+  };
 
   return (
     <Animated.View style={animatedStyle}>
-      <View style={{ backgroundColor: '#E956C6', padding: 5, borderRadius: 20 }}>
+      <View style={containerStyle}>
         <Image style={{ width: 20, height: 20 }} source={source} resizeMode="contain" />
       </View>
     </Animated.View>

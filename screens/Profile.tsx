@@ -11,13 +11,14 @@ import { Tabs } from '../components/Tabs';
 import { TalesCarousel } from '../components/TalesCarousel';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { ProfileStackParamList, TaleStackParamList } from '../App';
 import { UserService } from '../services/user.service';
 import { API_URL, PREMIUM_ACTIVE } from '@env';
 import { TaleService } from '../services/tale.service';
 import { use } from 'i18next';
 import { setHasSeenEmailVerifiedAsync } from '../redux/userSlice';
 import { AnimatedButton } from '../components/AnimatedButton';
+import { ProfileStackParamList } from '../navegation-components/ProfileStack';
+import { TaleStackParamList } from '../navegation-components/TaleStack';
 
 const crown = require('../assets/premium_crown.png');
 const Diamond = require('../assets/iconsHTML/white/diamond.png');
