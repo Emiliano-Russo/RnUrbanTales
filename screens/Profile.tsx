@@ -17,6 +17,7 @@ import { API_URL, PREMIUM_ACTIVE } from '@env';
 import { TaleService } from '../services/tale.service';
 import { use } from 'i18next';
 import { setHasSeenEmailVerifiedAsync } from '../redux/userSlice';
+import { AnimatedButton } from '../components/AnimatedButton';
 
 const crown = require('../assets/premium_crown.png');
 const Diamond = require('../assets/iconsHTML/white/diamond.png');
@@ -168,8 +169,10 @@ export const Profile = () => {
             </TouchableOpacity>
           </TouchableOpacity>
         )}
+
         {PREMIUM_ACTIVE == '1' && <Premium />}
         {user && user != null ? <BoxUserName name={user.name} onClick={openSettings} /> : <BoxSignInNowProfile />}
+        <AnimatedButton text={'Narrate'} onPress={() => {}} />
         <Tabs
           screens={[
             { title: t('Read'), component: Read },
