@@ -19,6 +19,7 @@ import { setHasSeenEmailVerifiedAsync } from '../redux/userSlice';
 import { AnimatedButton } from '../components/AnimatedButton';
 import { ProfileStackParamList } from '../navegation-components/ProfileStack';
 import { TaleStackParamList } from '../navegation-components/TaleStack';
+import { Particles } from '../components/Particles';
 
 const crown = require('../assets/premium_crown.png');
 const Diamond = require('../assets/iconsHTML/white/diamond.png');
@@ -170,9 +171,11 @@ export const Profile = () => {
             </TouchableOpacity>
           </TouchableOpacity>
         )}
-
         {PREMIUM_ACTIVE == '1' && <Premium />}
         {user && user != null ? <BoxUserName name={user.name} onClick={openSettings} /> : <BoxSignInNowProfile />}
+        <Particles>
+          <Text>Holaaaa</Text>
+        </Particles>
         <Tabs
           screens={[
             { title: t('Read'), component: Read },

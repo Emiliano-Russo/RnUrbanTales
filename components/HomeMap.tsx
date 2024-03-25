@@ -2,7 +2,6 @@ import React, { Dispatch, SetStateAction, useEffect } from 'react';
 import MapView, { Marker, Callout, LatLng, Region } from 'react-native-maps';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { TaleStackParamList } from '../App';
 import { Platform, View, Image } from 'react-native';
 import { Text } from '../tool-components/index';
 import customMapStyle from '../assets/map-basic.json';
@@ -15,6 +14,8 @@ import { MapLoadingDots } from './MapLoadingDots';
 import { MapSelection } from './MapSelection';
 import { MapAlertZoomOut } from './MapAlertZoomOut';
 import { findMark } from '../marks';
+import { TaleStackParamList } from '../navegation-components/TaleStack';
+import { Particles } from './Particles';
 
 interface Props {
   onRegionChangeComplete: (region: Region) => void;
@@ -81,10 +82,12 @@ export const HomeMap = (props: Props) => {
               longitude: parseFloat(tale.longitude),
             }}
             title={tale.title}>
-            <Image
-              source={findMark(tale.mark)?.image}
-              style={{ width: 20, height: 20 }} // Ajusta el tamaño según sea necesario
-            />
+            <Particles>
+              <Image
+                source={findMark(tale.mark)?.image}
+                style={{ width: 20, height: 20 }} // Ajusta el tamaño según sea necesario
+              />
+            </Particles>
             <Callout
               style={{
                 ...Platform.select({
