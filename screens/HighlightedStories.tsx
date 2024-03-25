@@ -7,8 +7,9 @@ import { TaleService } from '../services/tale.service';
 import { API_URL } from '@env';
 import { ITaleMini } from '../interfaces/Tale';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { TaleStackParamList } from '../App';
 import { useTranslation } from 'react-i18next';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { TaleStackParamList } from '../navegation-components/TaleStack';
 
 const taleService = new TaleService(API_URL);
 
@@ -33,7 +34,7 @@ export const Highlights = () => {
     }, [fetchTopLikedTales]),
   );
   return (
-    <View style={{ flex: 1, backgroundColor: 'white' }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
       <FlatList
         numColumns={3}
         data={tales}
@@ -52,6 +53,6 @@ export const Highlights = () => {
         )}
         keyExtractor={(item, index) => index.toString()}
       />
-    </View>
+    </SafeAreaView>
   );
 };

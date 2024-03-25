@@ -173,7 +173,6 @@ export const Profile = () => {
 
         {PREMIUM_ACTIVE == '1' && <Premium />}
         {user && user != null ? <BoxUserName name={user.name} onClick={openSettings} /> : <BoxSignInNowProfile />}
-        <AnimatedButton text={'Narrate'} onPress={() => {}} />
         <Tabs
           screens={[
             { title: t('Read'), component: Read },

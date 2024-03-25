@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { View, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { View, TouchableOpacity, Image, StyleSheet, Platform, SafeAreaView } from 'react-native';
 import { Text } from '../tool-components'; // Asegúrate de que la importación es correcta según tu estructura
 import { AnimatedIcon } from '../components/AnimatedIcon';
 import { Highlights } from '../screens/HighlightedStories';
 import { TaleNavigator } from './TaleStack';
 import { ProfileNavigator } from './ProfileStack';
+import { getBottomSpace } from 'react-native-iphone-x-helper';
 
 const TabIcons = {
   Highlights: require('../assets/iconsHTML/black/star.png'),
@@ -19,6 +20,7 @@ const SelectedIcons = {
 };
 
 export const AppNavigator = () => {
+  console.log('Bottom space: ', getBottomSpace());
   const [selectedTab, setSelectedTab] = useState('Home');
 
   const renderContent = () => {
@@ -37,7 +39,7 @@ export const AppNavigator = () => {
   return (
     <View style={{ flex: 1 }}>
       {renderContent()}
-      <View style={styles.tabBar}>
+      <SafeAreaView style={styles.tabBar}>
         {Object.keys(TabIcons).map((tab, index) => (
           <TouchableOpacity key={index} style={styles.tabItem} onPress={() => setSelectedTab(tab)}>
             <AnimatedIcon
@@ -49,7 +51,7 @@ export const AppNavigator = () => {
             {/* <Text>{tab}</Text> */}
           </TouchableOpacity>
         ))}
-      </View>
+      </SafeAreaView>
     </View>
   );
 };
@@ -61,6 +63,7 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: '#e8e8e8',
     height: 60,
+    paddingBottom: Platform.OS === 'ios' ? getBottomSpace() : 0,
   },
   tabItem: {
     alignItems: 'center',
