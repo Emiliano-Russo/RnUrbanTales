@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../redux/store';
 import { toggleCreatePressed } from '../redux/newTaleSlice';
 import { HighlightNavigator } from './HighlightsStack';
+import { useTranslation } from 'react-i18next';
 
 const TabIcons = {
   Highlights: require('../assets/iconsHTML/black/star.png'),
@@ -30,6 +31,7 @@ export const AppNavigator = () => {
   const navigation = useNavigation<StackNavigationProp<TaleStackParamList, 'Home'>>();
   const dispatch: AppDispatch = useDispatch();
   const newTale = useSelector((state: RootState) => state.newTale);
+  const { t } = useTranslation();
 
   const renderContent = () => {
     console.log('Selected tab', selectedTab);
@@ -67,6 +69,7 @@ export const AppNavigator = () => {
               first_background={styles.tabBar.backgroundColor}
               second_background={'#8B00FF'}
             />
+            {selectedTab === tab && tab === 'Home' && <Text style={styles.tabText}>{t('New Tale')}</Text>}
           </TouchableOpacity>
         ))}
       </SafeAreaView>
@@ -85,5 +88,12 @@ const styles = StyleSheet.create({
   },
   tabItem: {
     alignItems: 'center',
+  },
+  tabText: {
+    color: 'black',
+    fontSize: 12,
+    marginTop: Platform.OS == 'android' ? 25 : 0,
+    position: Platform.OS == 'android' ? 'relative' : 'absolute',
+    bottom: Platform.OS == 'android' ? 0 : -15,
   },
 });
