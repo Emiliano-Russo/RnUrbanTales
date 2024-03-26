@@ -12,7 +12,6 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import { Text } from '../tool-components/index';
-import { TaleStackParamList } from '../App';
 import { ITale, ITaleCreate } from '../interfaces/Tale';
 import { Button } from '../tool-components';
 import { useTranslation } from 'react-i18next';
@@ -27,6 +26,7 @@ import { categoryColors } from '../interfaces/Categories';
 import * as Animatable from 'react-native-animatable';
 import { TypewriterText } from '../components/TypeWriter';
 import { updateStringPropertyAsync } from '../redux/userSlice';
+import { TaleStackParamList } from '../navegation-components/TaleStack';
 
 type TaleDisplayRouteProp = RouteProp<TaleStackParamList, 'TaleDisplay'>;
 

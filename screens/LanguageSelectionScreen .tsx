@@ -93,6 +93,6 @@ const styles = StyleSheet.create({
   modalView: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
   },
 });

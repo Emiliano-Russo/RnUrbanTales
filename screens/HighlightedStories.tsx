@@ -10,11 +10,13 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { useTranslation } from 'react-i18next';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { TaleStackParamList } from '../navegation-components/TaleStack';
+import { Text } from '../tool-components/index';
+import { HighlightStackParamList } from '../navegation-components/HighlightsStack';
 
 const taleService = new TaleService(API_URL);
 
 export const Highlights = () => {
-  const navigationTalStack = useNavigation<StackNavigationProp<TaleStackParamList, 'Home'>>();
+  const navigationTalStack = useNavigation<StackNavigationProp<HighlightStackParamList, 'Highlight'>>();
   const [tales, setTales] = useState<ITaleMini[]>([]);
   const animatableRefs = useRef([]);
   const { t, i18n } = useTranslation();
@@ -35,6 +37,9 @@ export const Highlights = () => {
   );
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
+      <Text style={{ textAlign: 'center', fontSize: 20, marginTop: 10, color: 'black', marginBottom: 10 }}>
+        Highlights
+      </Text>
       <FlatList
         numColumns={3}
         data={tales}
@@ -47,7 +52,7 @@ export const Highlights = () => {
             <TaleBox
               image={item.image}
               title={item.title}
-              onPress={() => navigationTalStack.navigate('TaleDisplay', { taleId: item.id })}
+              onPress={() => navigationTalStack.navigate('TaleDisplayHighlight', { taleId: item.id })}
             />
           </Animatable.View>
         )}

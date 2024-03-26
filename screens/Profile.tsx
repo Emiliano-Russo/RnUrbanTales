@@ -92,10 +92,7 @@ export const Profile = () => {
       <TalesCarousel
         title={t('Tales Read')}
         tales={talesRead}
-        onPress={(id: string) => {
-          console.log('Tale ID', id);
-          navigationTalStack.navigate('TaleDisplay', { taleId: id });
-        }}
+        onPress={(id: string) => navigation.navigate('TaleShow', { taleId: id })}
       />
     );
   };
@@ -105,10 +102,7 @@ export const Profile = () => {
       <TalesCarousel
         title={t('Liked Tales')}
         tales={likedTales}
-        onPress={(id: string) => {
-          console.log('Tale ID', id);
-          navigationTalStack.navigate('TaleDisplay', { taleId: id });
-        }}
+        onPress={(id: string) => navigation.navigate('TaleShow', { taleId: id })}
       />
     );
   };
@@ -118,15 +112,10 @@ export const Profile = () => {
       <TalesCarousel
         title={t('Creations')}
         tales={myTales}
-        onPress={(id: string) => {
-          console.log('Tale ID', id);
-          navigationTalStack.navigate('TaleDisplay', { taleId: id });
-        }}
+        onPress={(id: string) => navigation.navigate('TaleShow', { taleId: id })}
       />
     );
   };
-
-  console.log('user: ', user);
 
   const Premium = () => {
     if (user && user.subscription && user.subscription && user.subscription.status == 'active')
@@ -173,9 +162,6 @@ export const Profile = () => {
         )}
         {PREMIUM_ACTIVE == '1' && <Premium />}
         {user && user != null ? <BoxUserName name={user.name} onClick={openSettings} /> : <BoxSignInNowProfile />}
-        <Particles>
-          <Text>Holaaaa</Text>
-        </Particles>
         <Tabs
           screens={[
             { title: t('Read'), component: Read },

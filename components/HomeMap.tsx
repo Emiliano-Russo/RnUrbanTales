@@ -82,12 +82,20 @@ export const HomeMap = (props: Props) => {
               longitude: parseFloat(tale.longitude),
             }}
             title={tale.title}>
-            <Particles>
+            {Platform.OS == 'ios' ? (
+              <Particles>
+                <Image
+                  source={findMark(tale.mark)?.image}
+                  style={{ width: 20, height: 20 }} // Ajusta el tamaño según sea necesario
+                />
+              </Particles>
+            ) : (
               <Image
                 source={findMark(tale.mark)?.image}
                 style={{ width: 20, height: 20 }} // Ajusta el tamaño según sea necesario
               />
-            </Particles>
+            )}
+
             <Callout
               style={{
                 ...Platform.select({

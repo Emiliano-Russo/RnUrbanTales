@@ -25,7 +25,7 @@ export const TaleNavigator = () => {
           headerShown: false,
         }}
       />
-      <TaleStack.Screen name="TaleDisplay" component={TaleDisplay} options={{ title: '' }} />
+      <TaleStack.Screen name="TaleDisplay" component={TaleDisplay} />
       <TaleStack.Screen name="NewTale" component={NewTaleNavigator} options={{ headerShown: false }} />
     </TaleStack.Navigator>
   );

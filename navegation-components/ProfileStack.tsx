@@ -8,9 +8,11 @@ import { Support } from '../screens/Support';
 import { Language } from '../screens/Language';
 import { About } from '../screens/About';
 import { DeleteAccount } from '../screens/DeleteAccount';
+import { TaleDisplay } from '../screens/TaleDisplay';
 
 export type ProfileStackParamList = {
   Profile: undefined;
+  TaleShow: { taleId: string };
   Settings: undefined;
   EditUser: undefined;
   Security: undefined;
@@ -35,6 +37,7 @@ export const ProfileNavigator = () => {
   return (
     <ProfileStack.Navigator>
       <ProfileStack.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
+      <ProfileStack.Screen name="TaleShow" component={TaleDisplay} options={{ title: '' }} />
       <ProfileStack.Screen
         name={'Settings'}
         component={Settings}

@@ -2,7 +2,7 @@ import { Modal, TouchableOpacity, View, StyleSheet } from 'react-native';
 import { Text } from '../tool-components/index';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList, TaleStackParamList } from '../App';
+import { RootStackParamList } from '../App';
 import { useTranslation } from 'react-i18next';
 
 interface Props {
@@ -37,10 +37,11 @@ export const ModalSignInNow = (props: Props) => {
           <Text style={styles.modalMessage}>{t('Login now and let your voice be heard')}</Text>
           <TouchableOpacity
             onPress={() => {
+              props.setVisible(false);
               navigation.navigate('Auth');
             }}
             style={[styles.modalButton, styles.modalButtonSecondary]}>
-            <Text style={styles.buttonText}>Iniciar sesión</Text>
+            <Text style={styles.buttonText}>{t('Sign In')}</Text>
           </TouchableOpacity>
         </View>
       </View>
