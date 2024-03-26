@@ -16,6 +16,7 @@ import { MapAlertZoomOut } from './MapAlertZoomOut';
 import { findMark } from '../marks';
 import { TaleStackParamList } from '../navegation-components/TaleStack';
 import { Particles } from './Particles';
+import { AnimatedFromLeft } from './AnimatedFromLeft';
 
 interface Props {
   onRegionChangeComplete: (region: Region) => void;
@@ -90,10 +91,12 @@ export const HomeMap = (props: Props) => {
                 />
               </Particles>
             ) : (
-              <Image
-                source={findMark(tale.mark)?.image}
-                style={{ width: 20, height: 20 }} // Ajusta el tamaño según sea necesario
-              />
+              <AnimatedFromLeft>
+                <Image
+                  source={findMark(tale.mark)?.image}
+                  style={{ width: 20, height: 20 }} // Ajusta el tamaño según sea necesario
+                />
+              </AnimatedFromLeft>
             )}
 
             <Callout
