@@ -14,7 +14,7 @@ import {
 import { Button, Text } from '../../tool-components';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { AuthStackParamList, RootStackParamList } from '../../App';
+import { RootStackParamList } from '../../App';
 import * as Animatable from 'react-native-animatable';
 import { useTranslation } from 'react-i18next';
 import { UserService } from '../../services/user.service';
@@ -23,6 +23,7 @@ import { addUserAndTokenAsync } from '../../redux/userSlice';
 import { AppDispatch } from '../../redux/store';
 import { NoAuthWrapper } from '../../wrappers/NoAuthWrapper';
 import { API_URL } from '@env';
+import { AuthStackParamList } from '../../navegation-components/AuthStack';
 //const backgroundImage = require('../../assets/loginbackground3.png');
 const backgroundImage = require('../../assets/backgroundRegister.png');
 
@@ -54,13 +55,17 @@ export function SignIn() {
       .loginUser(email, password)
       .then(response => {
         console.log('Login successfully: ', response);
+        if (response.user == undefined) {
+          console.log('user undefined');
+          Alert.alert('Error', t('Wrong email or password'));
+        }
         const obj = { token: response.accessToken, user: response.user };
         dispatch(addUserAndTokenAsync(obj));
         //navigationRoot.navigate("App");
       })
       .catch(err => {
         console.error('error: ', err);
-        Alert.alert('Error', t('Wrong email or password'));
+        Alert.alert('Error', t('Error'));
       })
       .finally(() => {
         setLoading(false);

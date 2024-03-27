@@ -18,6 +18,8 @@
 		6D065FBCFC7647319D3286F8 /* Merriweather-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ED8C13848A84798B0CB7563 /* Merriweather-Regular.ttf */; };
 		7F4D1345C3224D898EFBC2D3 /* Merriweather-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C103813B025940F782963AC3 /* Merriweather-BlackItalic.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		93C026F32BB496FF00702F7B /* official-logo-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 93C026F22BB496FF00702F7B /* official-logo-white.png */; };
+		93C026F52BB4AA2100702F7B /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93C026F42BB4AA2100702F7B /* SplashScreen.storyboard */; };
 		B2947D2A50E14A47A2B65A78 /* Merriweather-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 164349421F074A2A8CD78EBB /* Merriweather-Italic.ttf */; };
 		B57903FDCF9741A6887D1576 /* Merriweather-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AB0BDC7EB7F4893B7E5A8DA /* Merriweather-BoldItalic.ttf */; };
 		CA974E5737C946CD8F9119BE /* Merriweather-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9CBEC06A9CF40CC9FE4473E /* Merriweather-Black.ttf */; };
@@ -54,6 +56,8 @@
 		7AB0BDC7EB7F4893B7E5A8DA /* Merriweather-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Merriweather-BoldItalic.ttf"; path = "../assets/fonts/Merriweather-BoldItalic.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = RnUrbanTales/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		93A3AD5AF1458C32D8B1B479 /* libPods-RnUrbanTales-RnUrbanTalesTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RnUrbanTales-RnUrbanTalesTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		93C026F22BB496FF00702F7B /* official-logo-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "official-logo-white.png"; path = "../../../Desktop/urban tales/official-logo-white.png"; sourceTree = "<group>"; };
+		93C026F42BB4AA2100702F7B /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
 		9ED8C13848A84798B0CB7563 /* Merriweather-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Merriweather-Regular.ttf"; path = "../assets/fonts/Merriweather-Regular.ttf"; sourceTree = "<group>"; };
 		A9CBEC06A9CF40CC9FE4473E /* Merriweather-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Merriweather-Black.ttf"; path = "../assets/fonts/Merriweather-Black.ttf"; sourceTree = "<group>"; };
 		ACB0FF5D1C160D120D3B79B8 /* libPods-RnUrbanTales.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RnUrbanTales.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +112,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				93C026F42BB4AA2100702F7B /* SplashScreen.storyboard */,
 			);
 			name = RnUrbanTales;
 			sourceTree = "<group>";
@@ -168,6 +173,7 @@
 		E0BFDCFD7B794A6D93E235B4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				93C026F22BB496FF00702F7B /* official-logo-white.png */,
 				A9CBEC06A9CF40CC9FE4473E /* Merriweather-Black.ttf */,
 				C103813B025940F782963AC3 /* Merriweather-BlackItalic.ttf */,
 				16F43457688047A3B6DC97CC /* Merriweather-Bold.ttf */,
@@ -274,8 +280,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				93C026F52BB4AA2100702F7B /* SplashScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				CA974E5737C946CD8F9119BE /* Merriweather-Black.ttf in Resources */,
+				93C026F32BB496FF00702F7B /* official-logo-white.png in Resources */,
 				7F4D1345C3224D898EFBC2D3 /* Merriweather-BlackItalic.ttf in Resources */,
 				E14E07AC132549FC89A7FCC2 /* Merriweather-Bold.ttf in Resources */,
 				B57903FDCF9741A6887D1576 /* Merriweather-BoldItalic.ttf in Resources */,
